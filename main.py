@@ -51,7 +51,7 @@ def process_cloud_image(upload_path):
     
 # Perform face detection  --  clouds
     faces = face_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=5)
-    prof = profile_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=3)
+    prof = profile_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=1)
 
     for x, y, w, h in faces:
         cv2.rectangle(img, (x, y), (x + w, y + h), (10, 255, 194), 10)
