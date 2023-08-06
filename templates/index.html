@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Soulful Flames</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="path/to/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            margin: 5;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+    
+
+        .header {
+      background-color: #8e8d8a; /* #eae7dc;*/
+      color: darkslategray;
+      padding: 20px;
+      text-align: center;
+      width: 100%;
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+    }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 20px;
+            }
+        }
+
+        .header-text {
+            text-align: center;
+            flex: 1;
+        }
+
+        .header-text h3 {
+            margin: 0;
+        }
+
+        .about-section {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background-color: gray;
+            text-decoration: underline;
+            text-underline-position: under;
+            font-size: 12px;
+        }
+
+        .header-button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+
+        .header-button:focus {
+            outline: none;
+        }
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
+
+        .row-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .row1 {
+            background-color: #dcdfea; 
+        }
+
+        .row2 {
+            background-color: #dcdfea;  /* #d8c3a5;*/
+        }
+
+        .row3 {
+            background-color: #dcdfea; /* #8e8d8a;*/
+        }
+
+        .image-container,
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 50%;
+        }
+
+        /* Rest of your CSS code... */
+
+        /* For the image containers */
+.image-container-cloud,
+.image-container-fire,
+.image-container-cemetery {
+    width: 400px; /* Set the desired fixed width (same as height) */
+    height: 400px; /* Set the desired fixed height */
+    /*border-radius: 95%;  /*Make the container circular */
+    overflow: hidden; /* Hide any content that goes beyond the circular shape */
+}
+
+/* Remove the background-size property from the circular image containers */
+.image-container-cloud img,
+.image-container-fire img,
+.image-container-cemetery img {
+    width: 100%; /* Ensure the image takes up the entire container */
+    height: 100%; /* Ensure the image takes up the entire container */
+    object-fit: cover; /* Scale and crop the image to cover the container */
+}
+
+
+
+
+
+/* Rest of your CSS code... */
+
+        
+        .submit-button-cloud {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            display: inline-block;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            box-shadow: 0 9px #999;
+        }
+
+        .submit-button-cloud:hover {
+            background-color: #6d8ba3
+        }
+
+        .submit-button-cloud:active {
+            background-color: black;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .submit-container-cloud {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cloud-image {
+            max-width: 100%;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .submit-button-fire {
+            background-color: whitesmoke;
+            color: black;
+            font-weight: bold;
+            display: inline-block;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            box-shadow: 0 9px #999;
+        }
+
+        .submit-button-fire:hover {
+            background-color: #6d8ba3
+        }
+
+        .submit-button-fire:active {
+            background-color: black;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .submit-container-fire {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .fire-image {
+            max-width: 100%;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .submit-button-cemetery {
+            background-color: whitesmoke;
+            color: black;
+            font-weight: bold;
+            display: inline-block;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            box-shadow: 0 9px #999;
+        }
+
+        .submit-button-cemetery:hover {
+            background-color: #6d8ba3
+        }
+
+        .submit-button-cemetery:active {
+            background-color: black;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .submit-container-cemetery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cemetery-image {
+            max-width: 100%;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+            width: 100%;
+            font-size: 11px;
+            margin-top: 15px;
+        }
+        .processing-message {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+    <div class="header-text">
+        <h4 styile="color: rgb(17, 17, 12); font-family: cursive">Welcome to FacesAppear.com</h4>
+        <h1 style="color: rgb(17, 17, 12)"><strong> An entertaining use of AI to unmask our surroundings</h1></strong>
+        <a href="/about" class="header-button" ; style="color:white">About</a>
+    </div>
+    </div>
+
+    
+
+     <!-- Row: Characters in the Clouds - Take a Photo and Upload a Photo -->
+    <div class="row1 row-container">
+        <div class="image-container-cloud" style="width: 60%;">
+            
+            <img src="{{ url_for('static', filename='cloud48.png') }}" alt="Pictures of clouds before and after"
+                class="cloud-image">
+        </div>
+        <div class="button-container" style="width: 40%;">
+            <h2 style="color: rgb(17, 17, 12)"><strong> Faces in the clouds</strong></h2>
+            <h3 style="color: rgb(17, 17, 12)">See the parade of characters in the sky </h3></span>
+
+            <form id="upload-form-cloud-upload" action="{{ url_for('uploadcloud') }}" method="POST"
+                enctype="multipart/form-data">
+                <input id="file-picker-cloud" type="file" name="image" accept="image/*" class="hidden"
+                    onchange="showProcessingMessage('processing-cloud'); this.form.submit()">
+                <label for="file-picker-cloud" class="submit-button-cloud"><i class="fas fa-cloud-upload-alt"></i>
+                    Upload your Photo</label>
+                </form>
+                    <h3 style="color: black"><strong>-or- </strong></h2></span>
+
+            <form id="upload-form-cloud-camera" action="{{ url_for('uploadcloud') }}" method="POST"
+                enctype="multipart/form-data">
+                <input id="file-picker-cloud" type="file" name="image" accept="image/*" capture="camera" class="hidden"
+                    onchange="showProcessingMessage('processing-cloud'); this.form.submit()">
+                <label for="file-picker-cloud" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
+                    Photo</label>
+            </form>
+            
+            <p id="processing-cloud" class="processing-message" style= "color: #e85a4f"><strong>Processing...Please be patient, it may take up to 30 seconds to process</strong></p>
+        </div>
+    </div>
+
+
+   <!-- Row: Campfire Visions - Take a Photo and Upload a Photo -->
+   <div class="row2 row-container">
+   
+    <div class="button-container" style="width: 40%;">
+        <h2 style="color: rgb(17, 17, 12)"><strong>Campfire Visions</strong></h2>
+        <h3 style="color: rgb(17, 17, 12)">See the manifestations of your campfire </h3></span>
+        <form id="upload-form-fire" action="{{ url_for('uploadfire') }}" method="POST"
+            enctype="multipart/form-data">
+            <input id="file-picker-fire" type="file" name="image" accept="image/*" class="hidden"
+                onchange="showProcessingMessage('processing-fire'); this.form.submit()">
+            <label for="file-picker-fire" class="submit-button-cloud"><i class="fas fa-cloud-upload-alt"></i>
+                Upload your Photo</label>
+        </form>
+        
+        <h3 style="color: black"><strong>-or- </strong></h3></span>
+
+        <form id="upload-form-fire" action="{{ url_for('uploadfire') }}" method="POST"
+            enctype="multipart/form-data">
+            <input id="file-picker-fire" type="file" name="image" accept="image/*" capture="camera" class="hidden"
+                onchange="showProcessingMessage('processing-fire'); this.form.submit()">
+            <label for="file-picker-fire" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
+                Photo</label>
+        </form>
+
+        <h6><strong style="color:rgb(17, 17, 12)">(Take pictures from a safe distance of your campfire) </strong></h6>
+        
+        <p id="processing-fire" class="processing-message" style= "color: #e85a4f"><strong>Processing...May take up to 30 seconds to process</strong></p>
+        
+    </div>
+
+    <div class="image-container-fire" style="width: 60%;">
+        
+        <img src="{{ url_for('static', filename='fire34.png') }}" alt="Pictures of clouds before and after"
+            class="fire-image">
+    </div>
+</div>
+    
+<!-- Row: Cemetery Visions - Take a Photo and Upload a Photo -->
+<div class="row3 row-container">
+
+    <div class="image-container-cemetery" style="width: 60%;">
+        
+        <img src="{{ url_for('static', filename='cem6.png') }}" alt="Pictures of clouds before and after"
+            class="cemetery-image">
+    </div>
+   
+    <div class="button-container" style="width: 40%;">
+        <h2 style="color: rgb(17, 17, 12)"><strong>Cemetery Visions</strong></h2>
+        <h3 style="color: rgb(17, 17, 12)">See what faces<i> appear </i>at the cemetery</h3></span>
+        <form id="upload-form-cemetery" action="{{ url_for('uploadcemetery') }}" method="POST"
+            enctype="multipart/form-data">
+            <input id="file-picker-cemetery" type="file" name="image" accept="image/*" class="hidden"
+                onchange="showProcessingMessage('processing-cemetery'); this.form.submit()">
+            <label for="file-picker-cemetery" class="submit-button-cloud"><i class="fas fa-cloud-upload-alt"></i>
+                Upload your Photo</label>
+        </form>
+        
+        <h3 style="color: black"><strong>-or- </strong></h3></span>
+
+        <form id="upload-form-cemetery" action="{{ url_for('uploadcemetery') }}" method="POST"
+            enctype="multipart/form-data">
+            <input id="file-picker-cemetery" type="file" name="image" accept="image/*" capture="camera" class="hidden"
+                onchange="showProcessingMessage('processing-cemetery'); this.form.submit()">
+            <label for="file-picker-cemetery" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
+                Photo</label>
+        </form>
+        
+        <p id="processing-cemetery" class="processing-message" style= "color: #e85a4f"><strong>Processing...May take up to 30 seconds to process</strong></p>
+        
+    </div>
+
+    
+</div>
+
+
+    <footer class="footer">
+        <h5><strong style="color: rgb(17, 17, 12)">For entertainment purposes only. Please do not take the results too seriously! Each algorithm was optimized for its specific task. Enjoy!!</strong></h5>
+        <h6 style="color:rgb(17, 17, 12)">© 2023 FacesAppear.com all rights reserved.<span style="color:
+                cornflowerblue">TransparenC Analytics</span></h6>
+    </footer>
+
+    <script>
+        function showProcessingMessage(id) {
+            const processingMessage = document.getElementById(id);
+            if (processingMessage) {
+                processingMessage.style.display = 'block';
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

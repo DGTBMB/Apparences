@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cemetery appearances</title>
+    <style>
+
+        body {
+            background-color: black;
+        }
+        .header {
+            background-color: #8e8d8a;
+            color: black;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }  
+      
+        .header-text {
+            text-align: center;
+        }
+
+        .nav-container {
+            text-align: left;
+        }
+
+        .white-link {
+            color: white;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .content-container {
+            display: flex;
+            max-width: 90%;
+            margin-bottom: 20px;
+        }
+
+       
+        .footer {
+           background-color: #8e8d8a;;
+           color: white;
+           display: flex;
+           text-align: center;
+           margin-top: auto;
+        }
+        .footer h5, .footer h6 {
+            margin: 10px; /* Add this line to give some spacing around the text */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-text">
+            <h1><span style="color: white">Wow, there were {{ num_faces + num_profiles }} faces that <i> appeared </i> in your photo!</span></h1>
+        </div>
+        <div class="nav-container">
+            <nav>
+                <ul class="nav nav-pills white-link">
+                    <li><a href="/" class="white-link">Go back to Home</a></li>
+                    <li><a href="/download/{{ processed_image }}" class="white-link">Download Your Processed Image</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Contact us
+                        </a>
+                        <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item white-link"
+                                href="mailto:admin@CampfireVisions.org?subject=in2clouds site - Issues&body=I am facing an issue with the website!">admin@CampfireVisions.org</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content-container">
+            <h1>Processed Image</h1>
+            <img src="{{url_for('send_image', filename=processed_image)}}" alt="Processed Image" class="zoomable-image">
+        </div>
+    </div>
+
+   
+<footer class="footer">
+    <div class="nav-container">
+            <nav>
+                <ul class="nav nav-pills white-link">
+                    <li><a href="/" class="white-link">Go back to Home</a></li>
+                    <li><a href="/download/{{ processed_image }}" class="white-link">Download Your Processed Image</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Contact us
+                        </a>
+                        <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item white-link"
+                                href="mailto:admin@CampfireVisions.org?subject=in2clouds site - Issues&body=I am facing an issue with the website!">admin@CampfireVisions.org</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
+            <h5 style = "color: white"> This is for entertainment purposes only. This technology was optimized for finding shapes among the landscape of a cemetery that resembling facial features. Enjoy!!!</h5> 
+            <h6 style="color:white">© 2023 FacesAppear.com All rights reserved.</span><span style= "color: cornflowerblue">Transparency Analytics</span></h6>
+        </div>
+    </footer>
+    
+   
+</body>
+</html>
+

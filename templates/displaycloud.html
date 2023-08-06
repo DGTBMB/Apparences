@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Faces in Clouds</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="path/to/style.css">
+
+    <style>
+        .header {
+            background-color: #3a6f9b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-text {
+            text-align: center;
+        }
+
+        .nav-container {
+            text-align: center;
+            font-size: 18px; /* Adjust the font size as needed */
+            justify-content: space-between;
+        }
+
+        .white-link {
+            color: white;
+        }
+
+        .container {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+
+        .content-container {
+            text-align: center;
+            max-width: 90%;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+           background-color: #3a6f9b;
+           color: white;
+           display: flex;
+           text-align: center;
+           margin-top: auto;
+        }
+
+        .footer h5, .footer h6 {
+            margin: 10px; /* Add this line to give some spacing around the text */
+        }
+
+        
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-text">
+            <h1><span style="color: white">Wow, there were {{ num_faces + num_profiles }} faces detected!</span></h1>
+        </div>
+        <div class="nav-container">
+            <nav>
+                <ul class="nav nav-pills white-link">
+                    <li><a href="/" class="white-link">Go back to Home</a></li>
+                    <li><a href="/download/{{ processed_image }}" alt = "Processed Image" class="white-link">Download Your Processed Image</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Contact us
+                        </a>
+                        <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item white-link"
+                                href="mailto:admin@in2clouds.org?subject=in2clouds site - Issues&body=I am facing an issue with the website!">admin@In2clouds.org</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+    </div>
+
+    <div class="container">
+        <div class="content-container">
+            <h1>Processed Image</h1>
+            <img src="{{url_for('send_image', filename=processed_image)}}" alt="Processed Image" class="zoomable-image">
+        </div>
+    </div>
+    
+  
+    
+
+    <footer class="footer">
+        <div class="nav-container">
+                <nav>
+                    <ul class="nav nav-pills white-link">
+                        <li><a href="/" class="white-link">Go back to Home</a></li>
+                        <li><a href="/download/{{ processed_image }}" alt = "Processed Image" class="white-link">Download Your Processed Image</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Contact us
+                            </a>
+                            <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item white-link"
+                                    href="mailto:admin@in2clouds.org?subject=in2clouds site - Issues&body=I am facing an issue with the website!">admin@In2clouds.org</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        
+            <h5 style = "color: rgb(17, 17, 12)"> This is for entertainment purposes only. This technology was optimized for finding shapes resembling facial features in clouds.</h5> 
+            <h6 style="color:rgb(17, 17, 12)">© 2023 </span><span style= "color: cornflowerblue">Transparency Analytics</span> <span style="color:rgb(17, 17, 12)"all rights reserved.</span> </h6>
+        </div>
+</footer>
+    </body>
+</html>
+
