@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Soulful Appearances</title>
+    <title>Soulful Flames</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 
@@ -24,18 +24,16 @@
             text-align: center;
         }
 
-    
-
         .header {
-      background-color: #8e8d8a; /* #eae7dc;*/
-      color: darkslategray;
-      padding: 20px;
-      text-align: center;
-      width: 100%;
-      justify-content: space-between;
-      display: flex;
-      align-items: center;
-    }
+            background-color: #3a6f9b; /* #eae7dc;*/
+            color: darkslategray;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+        }
 
         /* Media query for smaller screens */
         @media (max-width: 768px) {
@@ -79,7 +77,7 @@
 
         .body {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             text-align: center;
             width: 100%;
@@ -93,53 +91,60 @@
         }
 
         .row1 {
-            background-color: #dcdfea; 
+            background-color: #dcdfea;
         }
 
         .row2 {
-            background-color: #dcdfea;  /* #d8c3a5;*/
+            background-color: #dcdfea;
         }
 
         .row3 {
-            background-color: #dcdfea; /* #8e8d8a;*/
+            background-color: #dcdfea;
+        }
+        .row4 {
+            background-color: #dcdfea;
         }
 
-        .image-container,
+        .row5 {
+            background-color: #dcdfea;
+        }
+
+        .row6 {
+            background-color: #dcdfea;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+        }
         .button-container {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            width: 50%;
+            width: 100%;
         }
 
-        /* Rest of your CSS code... */
-
         /* For the image containers */
-.image-container-cloud,
-.image-container-fire,
-.image-container-cemetery {
-    width: 400px; /* Set the desired fixed width (same as height) */
-    height: 400px; /* Set the desired fixed height */
-    /*border-radius: 95%;  /*Make the container circular */
-    overflow: hidden; /* Hide any content that goes beyond the circular shape */
-}
+        .image-container-cloud,
+        .image-container-fire,
+        .image-container-cemetery {
+            width: 500px; /* Set the desired fixed width (same as height) */
+            height: 500px; /* Set the desired fixed height */
+            /*border-radius: 95%;  /*Make the container circular */
+            overflow: hidden; /* Hide any content that goes beyond the circular shape */
+        }
 
-/* Remove the background-size property from the circular image containers */
-.image-container-cloud img,
-.image-container-fire img,
-.image-container-cemetery img {
-    width: 100%; /* Ensure the image takes up the entire container */
-    height: 100%; /* Ensure the image takes up the entire container */
-    object-fit: cover; /* Scale and crop the image to cover the container */
-}
+        /* Remove the background-size property from the circular image containers */
+        .image-container-cloud img,
+        .image-container-fire img,
+        .image-container-cemetery img {
+            width: 100%; /* Ensure the image takes up the entire container */
+            height: 100%; /* Ensure the image takes up the entire container */
+            object-fit: cover; /* Scale and crop the image to cover the container */
+        }
 
-
-
-
-
-/* Rest of your CSS code... */
-
-        
         .submit-button-cloud {
             background-color: white;
             color: black;
@@ -168,9 +173,9 @@
 
         .submit-container-cloud {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            margin-top: 20px;
+            margin-bottom: 20px;
             justify-content: center;
             text-align: center;
         }
@@ -178,7 +183,7 @@
         .cloud-image {
             max-width: 100%;
             width: 100%;
-            margin-bottom: 10px;
+            
         }
 
         .submit-button-fire {
@@ -209,9 +214,9 @@
 
         .submit-container-fire {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            margin-top: 20px;
+            margin-bottom: 20px;
             justify-content: center;
             text-align: center;
         }
@@ -219,7 +224,7 @@
         .fire-image {
             max-width: 100%;
             width: 100%;
-            margin-bottom: 10px;
+            
         }
 
         .submit-button-cemetery {
@@ -250,9 +255,9 @@
 
         .submit-container-cemetery {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            margin-top: 20px;
+            margin-bottom: 20px;
             justify-content: center;
             text-align: center;
         }
@@ -260,7 +265,7 @@
         .cemetery-image {
             max-width: 100%;
             width: 100%;
-            margin-bottom: 10px;
+            
         }
 
         .footer {
@@ -272,6 +277,7 @@
             font-size: 11px;
             margin-top: 15px;
         }
+
         .processing-message {
             display: none;
         }
@@ -280,34 +286,42 @@
 
 <body>
     <div class="header">
-    <div class="header-text">
-        <h4 styile="color: rgb(17, 17, 12); font-family: cursive">Welcome to FacesAppear.com</h4>
-        <h1 style="color: rgb(17, 17, 12)"><strong> An entertaining use of AI to unmask our surroundings</h1></strong>
-        <a href="/about" class="header-button" ; style="color:white">About</a>
-    </div>
+        <div class="header-text">
+            <h4 style="color: rgb(17, 17, 12)" font-family: cursive">Welcome to FacesAppear.com</h4>
+            <h1 style="color: rgb(17, 17, 12)"> An entertaining use of AI to unmask our surroundings</h1>
+            <h1 style="color: rgb(17, 17, 12)"><strong>Upload your pictures to reveal the facial characteristics within</span>
+                </strong></h1>
+            <a href="/about" class="header-button" ; style="color:white">About</a>
+        </div>
     </div>
 
+
+
+    <!-- Row: Characters in the Clouds - Take a Photo and Upload a Photo -->
+
+    <h2 style="color: rgb(17, 17, 12)"><strong> Faces in the clouds</strong></h2>
+    <h3 style="color: rgb(17, 17, 12)">See the parade of characters in the sky </h3></span>
     
-
-     <!-- Row: Characters in the Clouds - Take a Photo and Upload a Photo -->
     <div class="row1 row-container">
-        <div class="image-container-cloud" style="width: 60%;">
-            
+        <div class="image-container-cloud" style="width: 75%;">
+
             <img src="{{ url_for('static', filename='cloud48.png') }}" alt="Pictures of clouds before and after"
                 class="cloud-image">
         </div>
-        <div class="button-container" style="width: 40%;">
-            <h2 style="color: rgb(17, 17, 12)"><strong> Faces in the clouds</strong></h2>
-            <h3 style="color: rgb(17, 17, 12)">See the parade of characters in the sky </h3></span>
+    </div>
+
+        <div class="row2 row-container">
+        <div class="submit-container-cloud" style="width: 80%;">
+            
 
             <form id="upload-form-cloud-upload" action="{{ url_for('uploadcloud') }}" method="POST"
                 enctype="multipart/form-data">
                 <input id="file-picker-cloud" type="file" name="image" accept="image/*" class="hidden"
                     onchange="showProcessingMessage('processing-cloud'); this.form.submit()">
                 <label for="file-picker-cloud" class="submit-button-cloud"><i class="fas fa-cloud-upload-alt"></i>
-                    Upload your Photo</label>
-                </form>
-                    <h3 style="color: black"><strong>-or- </strong></h2></span>
+                    Upload your Cloud Photo</label>
+            </form>
+            <h3 style="color: black"><strong>-or-</strong></h3></span>
 
             <form id="upload-form-cloud-camera" action="{{ url_for('uploadcloud') }}" method="POST"
                 enctype="multipart/form-data">
@@ -316,89 +330,103 @@
                 <label for="file-picker-cloud" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
                     Photo</label>
             </form>
-            
-            <p id="processing-cloud" class="processing-message" style= "color: #e85a4f"><strong>Processing...Please be patient, it may take up to 30 seconds to process</strong></p>
+
+            <p id="processing-cloud" class="processing-message" style="color: #e85a4f"><strong>Processing...Please be
+                    patient, it may take up to 30 seconds to process</strong></p>
         </div>
     </div>
 
 
-   <!-- Row: Campfire Visions - Take a Photo and Upload a Photo -->
-   <div class="row2 row-container">
-   
-    <div class="button-container" style="width: 40%;">
-        <h2 style="color: rgb(17, 17, 12)"><strong>Campfire Visions</strong></h2>
-        <h3 style="color: rgb(17, 17, 12)">See the manifestations of your campfire </h3></span>
-        <form id="upload-form-fire" action="{{ url_for('uploadfire') }}" method="POST"
-            enctype="multipart/form-data">
-            <input id="file-picker-fire" type="file" name="image" accept="image/*" class="hidden"
-                onchange="showProcessingMessage('processing-fire'); this.form.submit()">
-            <label for="file-picker-fire" class="submit-button-cloud"><i class="fas fa-cloud-upload-alt"></i>
-                Upload your Photo</label>
-        </form>
-        
-        <h3 style="color: black"><strong>-or- </strong></h3></span>
+    <!-- Row: Campfire Visions - Take a Photo and Upload a Photo -->
 
-        <form id="upload-form-fire" action="{{ url_for('uploadfire') }}" method="POST"
-            enctype="multipart/form-data">
-            <input id="file-picker-fire" type="file" name="image" accept="image/*" capture="camera" class="hidden"
-                onchange="showProcessingMessage('processing-fire'); this.form.submit()">
-            <label for="file-picker-fire" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
-                Photo</label>
-        </form>
+    <h2 style="color: rgb(17, 17, 12)"><strong>Campfire Visions</strong></h2>
+    <h3 style="color: rgb(17, 17, 12)">See the manifestations of your campfire </h3></span>
+    <h6><strong style="color:rgb(17, 17, 12)">(Please be safe at the fire and only take pictures from a safe
+        distance) </strong></h6>
+    <div class="row3 row-container">
 
-        <h6><strong style="color:rgb(17, 17, 12)">(Take pictures from a safe distance of your campfire) </strong></h6>
-        
-        <p id="processing-fire" class="processing-message" style= "color: #e85a4f"><strong>Processing...May take up to 30 seconds to process</strong></p>
-        
+        <div class="image-container-fire" style="width: 75%">
+
+            <img src="{{ url_for('static', filename='fire34.png') }}" alt="Pictures of clouds before and after"
+                class="fire-image">
+        </div>
     </div>
 
-    <div class="image-container-fire" style="width: 60%;">
-        
-        <img src="{{ url_for('static', filename='fire34.png') }}" alt="Pictures of clouds before and after"
-            class="fire-image">
-    </div>
-</div>
-    
-<!-- Row: Cemetery Visions - Take a Photo and Upload a Photo -->
-<div class="row3 row-container">
+        <div class="row4 row-container">
+        <div class="submit-container-fire" style="width: 80%;">
+            
+            <form id="upload-form-fire" action="{{ url_for('uploadfire') }}" method="POST"
+                enctype="multipart/form-data">
+                <input id="file-picker-fire" type="file" name="image" accept="image/*" class="hidden"
+                    onchange="showProcessingMessage('processing-fire'); this.form.submit()">
+                <label for="file-picker-fire" class="submit-button-cloud"><i class="fas fa-cloud-upload-alt"></i>
+                    Upload your Campfire Photo</label>
+            </form>
 
-    <div class="image-container-cemetery" style="width: 60%;">
-        
-        <img src="{{ url_for('static', filename='cem6.png') }}" alt="Pictures of clouds before and after"
-            class="cemetery-image">
-    </div>
-   
-    <div class="button-container" style="width: 40%;">
-        <h2 style="color: rgb(17, 17, 12)"><strong>Cemetery Visions</strong></h2>
-        <h3 style="color: rgb(17, 17, 12)">See what faces<i> appear </i>at the cemetery</h3></span>
-        <form id="upload-form-cemetery" action="{{ url_for('uploadcemetery') }}" method="POST"
-            enctype="multipart/form-data">
-            <input id="file-picker-cemetery" type="file" name="image" accept="image/*" class="hidden"
-                onchange="showProcessingMessage('processing-cemetery'); this.form.submit()">
-            <label for="file-picker-cemetery" class="submit-button-cloud"><i class="fas fa-cloud-upload-alt"></i>
-                Upload your Photo</label>
-        </form>
-        
-        <h3 style="color: black"><strong>-or- </strong></h3></span>
+            <h3 style="color: black"><strong>-or-</strong></h3></span>
 
-        <form id="upload-form-cemetery" action="{{ url_for('uploadcemetery') }}" method="POST"
-            enctype="multipart/form-data">
-            <input id="file-picker-cemetery" type="file" name="image" accept="image/*" capture="camera" class="hidden"
-                onchange="showProcessingMessage('processing-cemetery'); this.form.submit()">
-            <label for="file-picker-cemetery" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
-                Photo</label>
-        </form>
-        
-        <p id="processing-cemetery" class="processing-message" style= "color: #e85a4f"><strong>Processing...May take up to 30 seconds to process</strong></p>
-        
+            <form id="upload-form-fire" action="{{ url_for('uploadfire') }}" method="POST"
+                enctype="multipart/form-data">
+                <input id="file-picker-fire" type="file" name="image" accept="image/*" capture="camera" class="hidden"
+                    onchange="showProcessingMessage('processing-fire'); this.form.submit()">
+                <label for="file-picker-fire" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
+                    Photo</label>
+            </form>
+
+            
+
+            <p id="processing-fire" class="processing-message" style="color: #e85a4f"><strong>Processing...May take up
+                    to 30 seconds to process</strong></p>
+
+        </div>
+
     </div>
 
-    
-</div>
+    <!-- Row: Cemetery Visions - Take a Photo and Upload a Photo -->
+
+    <h2 style="color: rgb(17, 17, 12)"><strong>Cemetery Visions</strong></h2>
+    <h3 style="color: rgb(17, 17, 12)">See what faces<i> appear </i>at the cemetery</h3></span>
+    <div class="row5 row-container">
+
+        <div class="image-container-cemetery" style="width: 75%">
+
+            <img src="{{ url_for('static', filename='cem6.png') }}" alt="Pictures of clouds before and after"
+                class="cemetery-image">
+        </div>
+    </div>
+        <div class="row6 row-container">
+        <div class="submit-container-cemetery" style="width: 80%;">
+            
+            <form id="upload-form-cemetery" action="{{ url_for('uploadcemetery') }}" method="POST"
+                enctype="multipart/form-data">
+                <input id="file-picker-cemetery" type="file" name="image" accept="image/*" class="hidden"
+                    onchange="showProcessingMessage('processing-cemetery'); this.form.submit()">
+                <label for="file-picker-cemetery" class="submit-button-cloud"><i class="fas fa-cloud-upload-alt"></i>
+                    Upload your Cemetery Photo</label>
+            </form>
+
+            <h3 style="color: black"><strong>-or-</strong></h3></span>
+
+            <form id="upload-form-cemetery" action="{{ url_for('uploadcemetery') }}" method="POST"
+                enctype="multipart/form-data">
+                <input id="file-picker-cemetery" type="file" name="image" accept="image/*" capture="camera" class="hidden"
+                    onchange="showProcessingMessage('processing-cemetery'); this.form.submit()">
+                <label for="file-picker-cemetery" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
+                    Photo</label>
+            </form>
+
+            <p id="processing-cemetery" class="processing-message" style="color: #e85a4f"><strong>Processing...May take
+                    up to 30 seconds to process</strong></p>
+
+        </div>
+
+
+    </div>
 
 
     <footer class="footer">
-        <h5><strong style="color: rgb(17, 17, 12)">For entertainment purposes only. Please do not take the results too seriously! Each algorithm was optimized for its specific task. Enjoy!!</strong></h5>
+        <h5><strong style="color: rgb(17, 17, 12)">For entertainment purposes only. Please do not take the results
+                too seriously! Each algorithm was optimized for its specific task. Enjoy!!</strong></h5>
         <h6 style="color:rgb(17, 17, 12)">© 2023 FacesAppear.com all rights reserved.<span style="color:
                 cornflowerblue">TransparenC Analytics</span></h6>
     </footer>
@@ -410,7 +438,7 @@
                 processingMessage.style.display = 'block';
             }
         }
-        
+
     </script>
 </body>
 
