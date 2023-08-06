@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Soulful Appearances</title>
+    <title>Soulful Flames</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 
@@ -146,7 +146,7 @@
         }
 
         .submit-button-cloud {
-            background-color: white;
+            background-color: #587f9f;
             color: black;
             font-weight: bold;
             display: inline-block;
@@ -187,7 +187,7 @@
         }
 
         .submit-button-fire {
-            background-color: whitesmoke;
+            background-color: #740a0ad1;
             color: black;
             font-weight: bold;
             display: inline-block;
@@ -228,7 +228,7 @@
         }
 
         .submit-button-cemetery {
-            background-color: whitesmoke;
+            background-color: #8e8d8a;
             color: black;
             font-weight: bold;
             display: inline-block;
@@ -288,8 +288,9 @@
     <div class="header">
         <div class="header-text">
             <h4 style="color: rgb(17, 17, 12)" font-family: cursive">Welcome to FacesAppear.com</h4>
-            <h1 style="color: rgb(17, 17, 12)"> An entertaining use of AI to unmask our surroundings</h1>
-            <h1 style="color: rgb(17, 17, 12)"><strong>Upload your pictures to reveal the facial characteristics within</span>
+            <h1 style="color: rgb(17, 17, 12)"><strong>Upload your pictures to unmask your surroundings with AI</span>
+            <h6 style="color: rgb(17, 17, 12)"> For entertainment purposes only</h6>
+            
                 </strong></h1>
             <a href="/about" class="header-button" ; style="color:white">About</a>
         </div>
@@ -303,9 +304,9 @@
     <h3 style="color: rgb(17, 17, 12)">See the parade of characters in the sky </h3></span>
     
     <div class="row1 row-container">
-        <div class="image-container-cloud" style="width: 100%">
+        <div class="image-container-cloud" style="width: 75%;">
 
-            <img src="{{ url_for('static', filename='cloud48.png') }}" alt="Pictures of clouds before and after"
+            <img src="{{ url_for('static', filename='cloud49.png') }}" alt="Pictures of clouds before and after"
                 class="cloud-image">
         </div>
     </div>
@@ -321,7 +322,7 @@
                 <label for="file-picker-cloud" class="submit-button-cloud"><i class="fas fa-cloud-upload-alt"></i>
                     Upload your Cloud Photo</label>
             </form>
-            <h3 style="color: black"><strong>-or-</strong></h3></span>
+            <h3 style="color: black"><strong> or </strong></h3></span>
 
             <form id="upload-form-cloud-camera" action="{{ url_for('uploadcloud') }}" method="POST"
                 enctype="multipart/form-data">
@@ -345,7 +346,7 @@
         distance) </strong></h6>
     <div class="row3 row-container">
 
-        <div class="image-container-fire" style="width: 100%">
+        <div class="image-container-fire" style="width: 75%">
 
             <img src="{{ url_for('static', filename='fire34.png') }}" alt="Pictures of clouds before and after"
                 class="fire-image">
@@ -363,7 +364,7 @@
                     Upload your Campfire Photo</label>
             </form>
 
-            <h3 style="color: black"><strong>-or-</strong></h3></span>
+            <h3 style="color: black"><strong>or</strong></h3></span>
 
             <form id="upload-form-fire" action="{{ url_for('uploadfire') }}" method="POST"
                 enctype="multipart/form-data">
@@ -388,7 +389,7 @@
     <h3 style="color: rgb(17, 17, 12)">See what faces<i> appear </i>at the cemetery</h3></span>
     <div class="row5 row-container">
 
-        <div class="image-container-cemetery" style="width: 100%"">
+        <div class="image-container-cemetery" style="width: 75%">
 
             <img src="{{ url_for('static', filename='cem6.png') }}" alt="Pictures of clouds before and after"
                 class="cemetery-image">
@@ -405,7 +406,7 @@
                     Upload your Cemetery Photo</label>
             </form>
 
-            <h3 style="color: black"><strong>-or-</strong></h3></span>
+            <h3 style="color: black"><strong> or </strong></h3></span>
 
             <form id="upload-form-cemetery" action="{{ url_for('uploadcemetery') }}" method="POST"
                 enctype="multipart/form-data">
