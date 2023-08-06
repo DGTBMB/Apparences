@@ -1,86 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Cloud visitors</title>
-    <style>
+    <title>Image Display</title>
 
-        body {
-            background-color: black;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
         .header {
-            background-color: #740a0ad1;
-            color: black;
-            padding: 20px;
+            background-color: #3a6f9b;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: space-between;
-        }  
-      
+        }
+
         .header-text {
             text-align: center;
         }
 
         .nav-container {
-            text-align: left;
+            text-align: center;
+            font-size: 18px; /* Adjust the font size as needed */
         }
 
         .white-link {
-            color: antiquewhite;
+            color: white;
+        }
+
+        .container {
+            display: grid;
+            place-items: center;
+            height: 100vh;
         }
 
         .content-container {
-            display: flex;
+            text-align: center;
             max-width: 90%;
             margin-bottom: 20px;
         }
 
-        .processed-image-container {
-            max-width: 100%;
-        }
-
-        .processed-image-container img {
+        .processed-image {
             max-width: 100%;
             height: auto;
         }
 
         .footer {
-            background-color: #740a0ad1;
-            color: white;
-            display: flex;
-            text-align: center;
-            margin-top: auto;
+          background-color: #3a6f9b;
+          padding: 20px;
+          text-align: center;
+          margin-top: auto;
+          width: 100%;
         }
 
-        .footer h5,
-        .footer h6 {
-         margin: 10px;
-        }
-
-/* Media query for smaller screens (mobile devices) */
-@media (max-width: 768px) {
-    .content-container {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
-        align-items: center; /* Center elements horizontally on smaller screens */
-    }
-
-    .processed-image-container img {
-        max-width: 90%; /* Reduce the image size for mobile views */
-    }
-}
-        
     </style>
 </head>
 
 <body>
     <div class="header">
         <div class="header-text">
-            <h1><span style="color: white">Wow, there were {{ num_faces + num_profiles }} faces detected in your cloud picture!</span></h1>
+            <h1><span style="color: white">Wow, there were {{ num_faces + num_profiles }} faces detected!</span></h1>
+            <h6><span style="color: white">Zoom in for more entertainment!</span></h6>
         </div>
-        <div class="nav-container">
+
+        
+            <div class="nav-container">
             <nav>
                 <ul class="nav nav-pills white-link">
                     <li><a href="/" class="white-link">Go back to Home</a></li>
-                    <li><a href="/download/{{ processed_image }}" alt = "Processed Image" class="white-link">Download Your Processed Image</a></li>
+                    <li><a href="/download/{{ processed_image }}" alt="Processed Image" class="white-link">Download Your Processed Image</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -94,20 +86,18 @@
                 </ul>
             </nav>
         </div>
-        
+       
     </div>
 
     <div class="container">
         <div class="content-container">
             <h1>Processed Image</h1>
-            <div class="processed-image-container"></div>
-            <img src="{{url_for('send_image', filename=processed_image)}}" alt="Processed Image">
+            <img src="{{ url_for('send_image') }}" alt="Processed Image" class="processed-image">
         </div>
     </div>
-    
-  
-    
+    </div>
 
+       
     <footer class="footer">
         <div class="nav-container">
                 <nav>
