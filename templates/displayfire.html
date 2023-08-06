@@ -28,28 +28,45 @@
             color: antiquewhite;
         }
 
-        .container {
-            display: flex;
-        }
-
         .content-container {
             display: flex;
             max-width: 90%;
             margin-bottom: 20px;
         }
 
-        
-        .footer {
-           background-color: #740a0ad1;;
-           color: white;
-           display: flex;
-           text-align: center;
-           margin-top: auto;
+        .processed-image-container {
+            max-width: 100%;
         }
 
-        .footer h5, .footer h6 {
-            margin: 10px; /* Add this line to give some spacing around the text */
+        .processed-image-container img {
+            max-width: 100%;
+            height: auto;
         }
+
+        .footer {
+            background-color: #740a0ad1;
+            color: white;
+            display: flex;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer h5,
+        .footer h6 {
+         margin: 10px;
+        }
+
+/* Media query for smaller screens (mobile devices) */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        align-items: center; /* Center elements horizontally on smaller screens */
+    }
+
+    .processed-image-container img {
+        max-width: 90%; /* Reduce the image size for mobile views */
+    }
+}
     </style>
 </head>
 
@@ -81,7 +98,8 @@
     <div class="container">
         <div class="content-container">
             <h1>Processed Image</h1>
-            <img src="{{url_for('send_image', filename=processed_image)}}" alt="Processed Image" class="zoomable-image">
+            <div class="processed-image-container"></div>
+            <img src="{{url_for('send_image', filename=processed_image)}}" alt="Processed Image" >
         </div>
     </div>
 
