@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cemetery appearances</title>
+    <title>Soulful Flames</title>
     <style>
 
         body {
             background-color: black;
         }
         .header {
-            background-color: #8e8d8a;
+            background-color: #740a0ad1;
             color: black;
             padding: 20px;
             display: flex;
@@ -25,11 +25,7 @@
         }
 
         .white-link {
-            color: white;
-        }
-
-        .container {
-            display: flex;
+            color: antiquewhite;
         }
 
         .content-container {
@@ -38,24 +34,47 @@
             margin-bottom: 20px;
         }
 
-       
+        .processed-image-container {
+            max-width: 100%;
+        }
+
+        .processed-image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
         .footer {
-           background-color: #8e8d8a;;
-           color: white;
-           display: flex;
-           text-align: center;
-           margin-top: auto;
+            background-color: #740a0ad1;
+            color: white;
+            display: flex;
+            text-align: center;
+            margin-top: auto;
         }
-        .footer h5, .footer h6 {
-            margin: 10px; /* Add this line to give some spacing around the text */
+
+        .footer h5,
+        .footer h6 {
+         margin: 10px;
         }
-    </style>
+
+/* Media query for smaller screens (mobile devices) */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        align-items: center; /* Center elements horizontally on smaller screens */
+    }
+
+    .processed-image-container img {
+        max-width: 90%; /* Reduce the image size for mobile views */
+    }
+}
+
+</style> 
 </head>
 
 <body>
     <div class="header">
         <div class="header-text">
-            <h1><span style="color: white">Wow, there were {{ num_faces + num_profiles }} faces that <i> appeared </i> in your photo!</span></h1>
+            <h1><span style="color: white">Wow, there were {{ num_faces + num_profiles }} faces that <i> appeared </i> in your cemetery photo!</span></h1>
         </div>
         <div class="nav-container">
             <nav>
@@ -80,7 +99,8 @@
     <div class="container">
         <div class="content-container">
             <h1>Processed Image</h1>
-            <img src="{{url_for('send_image', filename=processed_image)}}" alt="Processed Image" class="zoomable-image">
+            <div class="processed-image-container"></div>
+            <img src="{{url_for('send_image', filename=processed_image)}}" alt="Processed Image">
         </div>
     </div>
 
@@ -114,4 +134,3 @@
    
 </body>
 </html>
-
