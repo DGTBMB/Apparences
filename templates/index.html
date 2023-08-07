@@ -133,30 +133,22 @@
         .image-container-cloud,
         .image-container-fire,
         .image-container-cemetery { 
-          max-width: 100%;
-          width: 90%;
-          margin-bottom: 20px;
-          margin-top: 20px;
-        }
-            /*width: 100%; /* Set the desired fixed width (same as height) */
-            /*height: 100% /* Set the desired fixed height */
+           max-width: 100%;
+           width: 100%; /* Set the desired fixed width (same as height) */
+           height: 100% /* Set the desired fixed height */
             /*border-radius: 95%;  /*Make the container circular */
-            /*overflow: hidden; /* Hide any content that goes beyond the circular shape */
-        /*}*/
+            overflow: hidden; /* Hide any content that goes beyond the circular shape */
+        }
 
         /* Remove the background-size property from the circular image containers */
         .image-container-cloud img,
         .image-container-fire img,
         .image-container-cemetery img {
             max-width: 100%;
-            width: 90%;
-            margin-bottom: 20px;
-            margin-top: 20px;
+            width: 100%; /* Ensure the image takes up the entire container */
+            height: 100%; /* Ensure the image takes up the entire container */
+            object-fit: cover; /* Scale and crop the image to cover the container */
         }
-            /*width: 100%; /* Ensure the image takes up the entire container */
-            /*height: 100%; /* Ensure the image takes up the entire container */
-            /*object-fit: cover; /* Scale and crop the image to cover the container */
-        /*}*/
 
         .submit-button-cloud {
             background-color: #587f9f;
@@ -301,9 +293,9 @@
     <div class="header">
         <div class="header-text">
             <h4 style="color: rgb(17, 17, 12)" font-family: cursive">Welcome to FacesAppear.com</h4>
-            <h1 style= "color: whitesmoke"><strong>Reveal the hidden faces <i>*</i> in your surroundings</strong></h1>     
-            <h4 style= "color: palegoldenrod"><strong>Scroll </strong></h4> <h1 style= "color: whitesmoke"><strong> to see 3 fun areas to explore. </strong></h4> 
-            <h4 style= "color: palegoldenrod"><strong>Upload </strong><h1 style= "color: whitesmoke"><strong> your pictures</strong></h4>   
+            <h1 style= "color: whitesmoke"><strong>Reveal the hidden faces <i><span style= "font-family=9">*</span></i> in your surroundings</strong></h1>     
+            <h4 style= "color: palegoldenrod"><strong>Scroll </strong></h4> <h4 style= "color: whitesmoke"><strong> to see 3 fun areas to explore. </strong></h4> 
+            <h4 style= "color: palegoldenrod"><strong>Upload </strong><h4 style= "color: whitesmoke"><strong> your pictures</strong></h4>   
             <h6 style="color: rgb(17, 17, 12)"> For entertainment purposes only</h6>
             
             
