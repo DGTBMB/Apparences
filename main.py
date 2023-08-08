@@ -269,7 +269,12 @@ def uploadcemetery():
                             num_faces=processed_result['num_faces'], num_profiles=processed_result['num_profiles']))
 
     
+#______Processing...________
 
+# default access page
+@app.route("/")
+def processing():
+    return render_template('processing.html')
 
 
 #________Display _______
