@@ -2,13 +2,9 @@
 <html>
 <head>
     <title>Soulful Flames</title>
-    <style>
-
-        body {
-            background-color: black;
-        }
+      <style>
         .header {
-            background-color: #740a0ad1;
+            background-color: #3a6f9b;
             color: white;
             display: flex;
             align-items: center;
@@ -31,7 +27,6 @@
         .container {
             display: grid;
             place-items: center;
-            
         }
 
         .content-container {
@@ -46,32 +41,35 @@
         }
 
         .footer {
-          background-color: #740a0ad1;
+          background-color: #3a6f9b;
           padding: 20px;
           text-align: center;
           margin-top: auto;
           width: 100%;
         }
-            
-/* Media query for smaller screens (mobile devices) */
+        /* Media query for smaller screens (mobile devices) */
 @media (max-width: 768px) {
     .content-container {
         flex-direction: column; /* Stack elements vertically on smaller screens */
         align-items: center; /* Center elements horizontally on smaller screens */
-    }    
+    }
+
     </style>
 </head>
 
 <body>
     <div class="header">
         <div class="header-text">
-            <h1><span style="color: white">Wow, there were {{ num_faces }} <i> manifestations </i> detected in your campfire!</span></h1>
+            <h1><span style="color: white">Wow, there were {{ num_faces + num_profiles }} faces detected!</span></h1>
+            <h6><span style="color: white">Zoom in for more entertainment!</span></h6>
         </div>
-        <div class="nav-container">
+
+        
+            <div class="nav-container">
             <nav>
                 <ul class="nav nav-pills white-link">
                     <li><a href="/" class="white-link">Go back to Home</a></li>
-                    <li><a href="/download/{{ processed_image }}" class="white-link">Download Your Processed Image</a></li>
+                    <li><a href="/download/{{ processed_image }}" alt="Processed Image" class="white-link">Download Your Processed Image</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -79,46 +77,43 @@
                         </a>
                         <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item white-link"
-                                href="mailto:admin@CampfireVisions.org?subject=in2clouds site - Issues&body=I am facing an issue with the website!">admin@CampfireVisions.org</a>
+                                href="mailto:admin@FacesAppear.com?subject=in2clouds site - Issues&body=I am facing an issue with the website!">admin@In2clouds.org</a>
                         </div>
                     </li>
                 </ul>
             </nav>
         </div>
+       
     </div>
 
     <div class="container">
         <div class="content-container">
             <h1>Processed Image</h1>
-            <img src="{{url_for('send_image', filename=processed_image)}}" alt="Processed Image" >
+            <img src="{{ url_for('send_image') }}" alt="Processed Image" class="processed-image">
         </div>
     </div>
-
-    <div id="zoom-overlay" class="zoom-overlay">
-        <img id="zoomed-image" class="zoomed-image" />
     </div>
- </div>
 
-    
+       
     <footer class="footer">
         <div class="nav-container">
-            <nav>
-                <ul class="nav nav-pills white-link">
-                    <li><a href="/" class="white-link">Go back to Home</a></li>
-                    <li><a href="/download/{{ processed_image }}" class="white-link">Download Your Processed Image</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Contact us
-                        </a>
-                        <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item white-link"
-                                href="mailto:admin@CampfireVisions.org?subject=in2clouds site - Issues&body=I am facing an issue with the website!">admin@CampfireVisions.org</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+                <nav>
+                    <ul class="nav nav-pills white-link">
+                        <li><a href="/" class="white-link">Go back to Home</a></li>
+                        <li><a href="/download/{{ processed_image }}" alt = "Processed Image" class="white-link">Download Your Processed Image</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Contact us
+                            </a>
+                            <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item white-link"
+                                    href="mailto:admin@FacesAppear.com?subject=in2clouds site - Issues&body=I am facing an issue with the website!">admin@In2clouds.org</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             <h5 style = "color: palegoldenrod"> This is for entertainment purposes only. This technology was optimized for finding shapes resembling facial features in embers and flames.</h5> 
             <h6 style="color:palegoldenrod">© 2023 </span><span style= "color: cornflowerblue">Transparency Analytics</span><span style="color:palegoldenrod">all rights reserved.</span> </h6>
         </div>
