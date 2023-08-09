@@ -32,4 +32,4 @@ RUN python -m pip install -r requirements.txt
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 
 
-ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:8080", "main:app"]
+ENTRYPOINT ["gunicorn", "--bind", "0.0.0.0:8080", "main:app" , "-t", "240"]
