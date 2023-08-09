@@ -279,10 +279,24 @@
             margin-top: 15px;
         }
 
+        .processing-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
         .processing-message {
             display: none;
             margin-top: 10px; /* Add some space at the top */
             text-align: center; /* Center the text */
+        }
+
+        .safety-container {
+            background-color: #dcdfea;
+            flex-direction: row;
+            align-items: center;
+            text-align: center;
         }
     </style>
 </head>
@@ -292,8 +306,8 @@
         <div class="header-text">
             <h4 style="color: rgb(17, 17, 12)" font-family: cursive">Welcome to FacesAppear.com</h4>
             <h1 style= "color: whitesmoke"><strong>Revealing hidden faces with AI!</strong></h1>     
-            <h3> <strong> <span style= "color: palegoldenrod; font-size: 24px">Scroll</span><h3><h4 span style= "color: whitesmoke; font-size:16px"><strong> to see 3 fun choices</strong></h4>
-            <h3> <strong> <span style= "color: palegoldenrod; font-size: 24px"><strong>Upload</strong></span><h3><h4 style= "color: whitesmoke; font-size:16px"><strong> your pictures</strong></h4>
+            <h3>  <span style= "color: palegoldenrod; font-size: 32px"><strong>Scroll</strong></span><h3><h4 span style= "color: whitesmoke; font-size:16px"><strong> to see 3 fun choices</strong></h4>
+            <h3>  <span style= "color: palegoldenrod; font-size: 32px"><strong>Upload</strong></span><h3><h4 style= "color: whitesmoke; font-size:16px"><strong> your pictures</strong></h4>
             <h6 style="color: rgb(17, 17, 12)"> For entertainment purposes only.</h6>
             
             
@@ -336,14 +350,16 @@
                 <label for="file-picker-cloud" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
                     Photo</label>
             </form>
-
-            <p id="processing-cloud" class="processing-message" style="color: #e85a4f"><strong>Processing...Please be
-                    patient, it may take up to 30 seconds to process</strong></p>
         </div>
     </div>
+            <div class="processing-container">
+            <p id="processing-cloud" class="processing-message" style="color: #e85a4f"><strong>Processing...Please be
+                    patient, it may take up to 30 seconds to process</strong></p>
+            </div>
+    
 
 
-    <!-- Row: Campfire Visions - Take a Photo and Upload a Photo -->
+    <!-- Campfire Visions  -->
 
     <h2 style="color: rgb(17, 17, 12)"><strong>Campfire Visions</strong></h2>
     <h3 style="color: rgb(17, 17, 12)">See the manifestations of your campfire </h3></span>
@@ -357,10 +373,14 @@
         </div>
     </div>
 
+    <div class="safety-container">
+        <h6><strong><span  style="color: rgb(17, 17, 12)"">(Please be safe at the fire and only take pictures from a safe
+                distance)</span> </strong></h6>
+    </div>
+
         <div class="row4 row-container">
         <div class="submit-container-fire" style="width: 80%;">
-            <h6><strong style="color:rgb(17, 17, 12)">(Please be safe at the fire and only take pictures from a safe
-        distance) </strong></h6>
+            
             
             <form id="upload-form-fire" action="{{ url_for('uploadfire') }}" method="POST"
                 enctype="multipart/form-data">
@@ -379,17 +399,16 @@
                 <label for="file-picker-fire" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
                     Photo</label>
             </form>
+        </div>
+    </div>
+   
 
-            
-
-            <p id="processing-fire" class="processing-message" style="color: #e85a4f"><strong>Processing...May take up
-                    to 30 seconds to process</strong></p>
-
+    <div class="processing-container">
+        <p id="processing-fire" class="processing-message" style="color: #e85a4f"><strong>Processing...Please be
+                patient, it may take up to 30 seconds to process</strong></p>
         </div>
 
-    </div>
-
-    <!-- Row: Cemetery Visions - Take a Photo and Upload a Photo -->
+    <!--  Trail Visions - -->
 
     <h2 style="color: rgb(17, 17, 12)"><strong> Trail Visions</strong></h2>
     <h3 style="color: rgb(17, 17, 12)">See what faces<i> appear </i> in the woods</h3></span>
@@ -421,14 +440,12 @@
                 <label for="file-picker-cemetery" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
                     Photo</label>
             </form>
-
-            <p id="processing-cemetery" class="processing-message" style="color: #e85a4f"><strong>Processing...May take
-                    up to 30 seconds to process</strong></p>
-
         </div>
-
-
-    </div>
+     </div>
+     <div class="processing-container">
+        <p id="processing-cemetery" class="processing-message" style="color: #e85a4f"><strong>Processing...Please be
+                patient, it may take up to 30 seconds to process</strong></p>
+        </div>
 </div>
 
 
