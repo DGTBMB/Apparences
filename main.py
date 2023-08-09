@@ -50,7 +50,7 @@ def process_cloud_image(upload_path):
         return {'status': 'error', 'message': 'Failed to read the image'}
     
 # Perform face detection  --  clouds
-    faces = face_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=5)
+    faces = face_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=3)
     prof = profile_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=3)
 
     for x, y, w, h in faces:
@@ -122,8 +122,8 @@ def process_cemetery_image(upload_path):
         return {'status': 'error', 'message': 'Failed to read the image'}
     
 # Perform face detection  --- Cemetery
-    faces = face_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=7)
-    prof = profile_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=7)
+    faces = face_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=4)
+    prof = profile_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=4)
 
     for x, y, w, h in faces:
         cv2.rectangle(img, (x, y), (x + w, y + h), (181, 90, 0), 4)
