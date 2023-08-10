@@ -1,16 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Image Display</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-    <style>
+    <title>Soulful Appearances</title>
+      <style>
         .header {
             background-color: #3a6f9b;
             color: white;
@@ -47,6 +39,15 @@
             max-width: 100%;
             height: auto;
         }
+
+          .groffcontainer{
+            background-color: #5b819f;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+        }  
 
         .footer {
           background-color: #3a6f9b;
@@ -85,7 +86,7 @@
                         </a>
                         <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item white-link"
-                                href="mailto:admin@in2clouds.org?subject=in2clouds site - Issues&body=I am facing an issue with the website!">admin@In2clouds.org</a>
+                                href="mailto:admin@FacesAppear.com?subject=FacesAppear site - Issues&body=I am facing an issue with the website!">admin@In2clouds.org</a>
                         </div>
                     </li>
                 </ul>
@@ -100,8 +101,13 @@
             <img src="{{ url_for('send_image') }}" alt="Processed Image" class="processed-image">
         </div>
     </div>
-    </div>
 
+     <div class ="groffcontainer">
+        <div class="header-text">
+            <h2><span style="font-size: 24px"> Groff Video -  Bringing your Vision to the World! </h3> 
+            <h2>To transfer your family movies and videos to a digital platform, contact 207-415-1374 <a  style="color: palegoldenrod"; href="http://www.groffvideo.com/transfer-media.html" target="_blank"> GROFF VIDEO</a> </h2>
+        
+    </div>
 
        
     <footer class="footer">
@@ -117,16 +123,17 @@
                             </a>
                             <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item white-link"
-                                    href="mailto:admin@in2clouds.org?subject=in2clouds site - Issues&body=I am facing an issue with the website!">admin@In2clouds.org</a>
+                                    href="mailto:admin@FacesAppear.com?subject=FacesAppear site - Issues&body=I am facing an issue with the website!">admin@In2clouds.org</a>
                             </div>
                         </li>
                     </ul>
                 </nav>
             </div>
-        
-            <h5 style = "color: rgb(17, 17, 12)"> This is for entertainment purposes only. This technology was optimized for finding shapes resembling facial features in clouds.</h5> 
-            <h6 style="color:rgb(17, 17, 12)">© 2023 </span><span style= "color: cornflowerblue">Transparency Analytics</span> <span style="color:rgb(17, 17, 12)"all rights reserved.</span> </h6>
+            <h5 style = "color: palegoldenrod"> This is for entertainment purposes only. This technology was optimized for finding shapes resembling facial features the changing landscape of the sky</h5> 
+            <h6 style="color:palegoldenrod">© 2023 </span><span style= "color: cornflowerblue">Transparency Analytics</span><span style="color:palegoldenrod">all rights reserved.</span> </h6>
         </div>
-</footer>
-    </body>
+    </footer>
+    
+   
+</body>
 </html>
