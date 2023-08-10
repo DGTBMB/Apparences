@@ -25,7 +25,7 @@
         }
 
         .header {
-            background-color: gold /* #3a6f9b; #eae7dc;*/
+            background-color: #3a6f9b; /* #eae7dc;*/
             color: darkslategray;
             padding: 20px;
             text-align: center;
@@ -280,6 +280,7 @@
         }
 
         .processing-container {
+            background-color: black;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -290,6 +291,13 @@
             display: none;
             margin-top: 10px; /* Add some space at the top */
             text-align: center; /* Center the text */
+        }
+
+        .additional-messages {
+            display: none; /* Hide the additional messages initially */
+            color: white; /* Color for the additional messages */
+            font-size: 20px; /* Font size for the additional messages */
+            margin-top: 20px; /* Add some spacing between messages */
         }
 
         .safety-container {
@@ -352,10 +360,14 @@
             </form>
         </div>
     </div>
-            <div class="processing-container">
+         <div class="processing-container">
             <p id="processing-cloud" class="processing-message" style="color: #e85a4f"><strong>Processing...Please be
                     patient, it may take up to 30 seconds to process</strong></p>
+            <div class="additional-messages">
+                <span style="color: white; font-size: 24px"><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></span> <span style= "color: palegoldenrod; font-size: 24px"> Bringing your Vision to the World!</span>
+                <span style="color: white; font-size: 24px">To transfer your family movies and videos to a digital platform: contact 207-415-1374   Website: <u><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></u></span>
             </div>
+         </div>
     
 
 
@@ -404,9 +416,12 @@
    
 
     <div class="processing-container">
-        <p id="processing-fire" class="processing-message" style="color: #e85a4f"><strong>Processing...Please be
-                patient, it may take up to 30 seconds to process</strong></p>
+        <p id="processing-fire" class="processing-message" style="color: #e85a4f"><strong>Processing...Please be patient, it may take up to 30 seconds to process</strong></p>
+        <div class="additional-messages">
+            <span style="color: white; font-size: 24px"><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></span> <span style= "color: palegoldenrod; font-size: 24px"> Bringing your Vision to the World!</span>
+                <span style="color: white; font-size: 24px">To transfer your family movies and videos to a digital platform: contact 207-415-1374   Website: <u><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></u></span>
         </div>
+    </div>
 
     <!--  Trail Visions - -->
 
@@ -445,6 +460,10 @@
      <div class="processing-container">
         <p id="processing-cemetery" class="processing-message" style="color: #e85a4f"><strong>Processing...Please be
                 patient, it may take up to 30 seconds to process</strong></p>
+                <div class="additional-messages">
+                    <span style="color: white; font-size: 24px"><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></span> <span style= "color: palegoldenrod; font-size: 24px"> Bringing your Vision to the World!</span>
+                    <span style="color: white; font-size: 24px">To transfer your family movies and videos to a digital platform: contact 207-415-1374   Website: <u><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></u></span>
+                </div>
         </div>
 </div>
 
@@ -456,12 +475,22 @@
     </footer>
 
     <script>
+        
+
         function showProcessingMessage(id) {
             const processingMessage = document.getElementById(id);
+            const additionalMessages = processingMessage.nextElementSibling;
+
+            if (processingMessage && additionalMessages) {
+                processingMessage.style.display = 'block';
+                additionalMessages.style.display = 'block';
+            }
+
             if (processingMessage) {
                 processingMessage.style.display = 'block';
             }
-        }
+}
+
 
     </script>
 </body>
