@@ -25,15 +25,26 @@
         }
 
         .header {
-            background-color: #f0ffff; /*#3a6f9b; /* #eae7dc;*/
+            background-color: #dcdfea;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px; /* Add margin to create space at the top */
+            margin-bottom: 20px; /* Add margin to create space at the bottom */
+    }
+    
+
+        .header_container {
+            background-color: #f0ffff;
             color: darkslategray;
             padding: 20px;
             text-align: center;
-            width: 100%;
-            justify-content: space-between;
-            display: flex;
-            align-items: center;
-        }
+            width: 85%;
+            height: 85%;
+            max-width: 1200px; /* Set a maximum width to avoid excessive stretching */
+            max-height 1200px; 
+    }
 
         /* Media query for smaller screens */
         @media (max-width: 768px) {
@@ -313,6 +324,7 @@
 
 <body>
     <div class="header">
+        <div header_container>
         <div class="header-text">
             <h4 style="color: rgb(17, 17, 12)" font-family: cursive">Welcome to FacesAppear.com</h4>
             <h1 style= "color: black"><strong>Revealing hidden faces with AI!</strong></h1>     
@@ -322,6 +334,7 @@
             
             
             <a href="/about" class="header-button" ; style="color:white">About</a>
+        </div>
         </div>
     </div>
 
