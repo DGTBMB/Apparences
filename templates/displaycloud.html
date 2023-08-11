@@ -4,20 +4,35 @@
     <title>Soulful Appearances</title>
       <style>
         .header {
-            background-color: #9cb0c1;
-            color: white;
+            background-color: #dcdfea;
+            width: 100%;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-        }
+            align-items: center;
+            margin-top: 20px; /* Add margin to create space at the top */
+            margin-bottom: 20px; /* Add margin to create space at the bottom */
+    }
+    
 
-        .header-text {
+        .header_container {
+            background-color: #f0ffff;
+            color: darkslategray;
+            padding: 20px;
+            text-align: center;
+            width: 85%;
+            height: 85%;
+            /*max-width: 1200px; /* Set a maximum width to avoid excessive stretching */
+            box-shadow: 0 9px #999;
+            display: inline-block;
+            
+    }
+
+          .header-text {
             text-align: center;
             color: black;
             font-weight: bold;
             font-size: 30px;
         }
-
         .nav-container {
             text-align: center;
             font-size: 18px; /* Adjust the font size as needed */
@@ -72,7 +87,8 @@
 
 <body>
     <div class="header">
-        <div class="header-text">
+        <div class = "header_container">
+            <div class="header-text">
             <h1>Wow, there were {{ num_faces + num_profiles }} faces detected!</h1>
             <h6>Zoom in for more entertainment!</h6>
         </div>
@@ -96,7 +112,7 @@
                 </ul>
             </nav>
         </div>
-       
+    </div>
     </div>
 
     <div class="container">
