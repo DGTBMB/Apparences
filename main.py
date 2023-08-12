@@ -126,7 +126,7 @@ def process_cemetery_image(upload_path):
     prof = profile_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=4)
 
     for x, y, w, h in faces:
-        cv2.rectangle(img, (x, y), (x + w, y + h), (181, 90, 0), 8)
+        cv2.rectangle(img, (x, y), (x + w, y + h), (181, 90, 0), minSize = (30, 30), 8)
     for x, y, w, h in prof:
         cv2.rectangle(img, (x, y), (x + w, y + h), (181, 90, 0), 8)
     
