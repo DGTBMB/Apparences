@@ -91,7 +91,7 @@ def process_fire_image(upload_path):
     faces = face_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=3)
     
     for x, y, w, h in faces:
-        cv2.rectangle(img, (x, y), (x + w, y + h), (181, 90, 0), 8)
+        cv2.rectangle(img, (x, y), (x + w, y + h), (181, 90, 0), 10)
     
     
     # Count the number of faces detected
@@ -126,9 +126,9 @@ def process_cemetery_image(upload_path):
     prof = profile_cascade.detectMultiScale(img, scaleFactor=1.01, minSize = (30,30), minNeighbors=4)
 
     for x, y, w, h in faces:
-        cv2.rectangle(img, (x, y), (x + w, y + h), (181, 90, 0), 8)
+        cv2.rectangle(img, (x, y), (x + w, y + h), (181, 90, 0), 10)
     for x, y, w, h in prof:
-        cv2.rectangle(img, (x, y), (x + w, y + h), (181, 90, 0), 8)
+        cv2.rectangle(img, (x, y), (x + w, y + h), (181, 90, 0), 10)
     
     # Count the number of faces detected
     num_faces = len(faces)
