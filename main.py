@@ -17,6 +17,7 @@ UPLOADS_FOLDER = os.path.join(APP_ROOT, 'static/images')
 PROCESSED_FOLDER = os.path.join(APP_ROOT, 'static/images')
 
 face_cascade = cv2.CascadeClassifier('haar/haarcascade_frontalface.xml') 
+face1_cascade = cv2.CascadeClassifier('haar/haarcascade_frontalface1.xml') 
 profile_cascade = cv2.CascadeClassifier('haar/haarcascade_profile.xml')
 
 # default access page
@@ -51,15 +52,19 @@ def process_cloud_image(upload_path):
     
 # Perform face detection  --  clouds
     faces = face_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=3)
+    faces1 = face1_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=3)
     prof = profile_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=1)
 
     for x, y, w, h in faces:
+        cv2.rectangle(img, (x, y), (x + w, y + h), (10, 255, 194), 10)
+    for x, y, w, h in faces1:
         cv2.rectangle(img, (x, y), (x + w, y + h), (10, 255, 194), 10)
     for x, y, w, h in prof:
         cv2.rectangle(img, (x, y), (x + w, y + h), (10, 255, 194), 10)
     
     # Count the number of faces detected
     num_faces = len(faces)
+    num_faces1 = len(faces1)
     num_profiles = len(prof)
 
     temp_filename = 'temp.png'
@@ -75,6 +80,7 @@ def process_cloud_image(upload_path):
         'status': 'success',
         'message': 'Image processed successfully',
         'num_faces': num_faces,
+        'num_faces1': num_faces1,
         'num_profiles': num_profiles,
         'temp_filename': temp_filename
     }
@@ -188,7 +194,7 @@ def uploadcloud():
         return render_template("error.html", message="Failed to process the image"), 500
 
     return redirect(url_for('displaycloud', original_image=filename, processed_image=processed_result['temp_filename'],
-                            num_faces=processed_result['num_faces'], num_profiles=processed_result['num_profiles']))
+                            num_faces=processed_result['num_faces'], num_faces1=processed_result['num_faces1'], num_profiles=processed_result['num_profiles']))
 
     
 
@@ -283,7 +289,8 @@ def processing():
 def displaycloud():
     original_image = request.args.get('original_image')
     processed_image = request.args.get('processed_image')
-    num_faces = int(request.args.get('num_faces', 0))       
+    num_faces = int(request.args.get('num_faces', 0))  
+    num_faces1 = int(request.args.get('num_faces1', 0)) 
     num_profiles = int(request.args.get('num_profiles', 0))
     temp_filename = 'temp.png'
 
