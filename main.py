@@ -294,7 +294,7 @@ def displaycloud():
     num_profiles = int(request.args.get('num_profiles', 0))
     temp_filename = 'temp.png'
 
-    return render_template("displaycloud.html", original_image=original_image, processed_image=processed_image, num_faces=num_faces, num_profiles=num_profiles, temp_filename=temp_filename)
+    return render_template("displaycloud.html", original_image=original_image, processed_image=processed_image, num_faces=num_faces, num_faces1=num_faces1, num_profiles=num_profiles, temp_filename=temp_filename)
 
 @app.route("/displayfire")
 def displayfire():
