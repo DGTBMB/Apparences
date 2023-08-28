@@ -51,8 +51,8 @@ def process_cloud_image(upload_path):
         return {'status': 'error', 'message': 'Failed to read the image'}
     
 # Perform face detection  --  clouds
-    faces = face_cascade.detectMultiScale(img, scaleFactor=1.05, minNeighbors=1)
-    faces1 = face1_cascade.detectMultiScale(img, scaleFactor=1.05, minNeighbors=1)
+    faces = face_cascade.detectMultiScale(img, scaleFactor=1.05, minNeighbors=2)
+    faces1 = face1_cascade.detectMultiScale(img, scaleFactor=1.05, minNeighbors=2)
     prof = profile_cascade.detectMultiScale(img, scaleFactor=1.01, minNeighbors=1)
 
     for x, y, w, h in faces:
