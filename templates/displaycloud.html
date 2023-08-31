@@ -100,6 +100,9 @@
                     <li><a href="/" class="white-link">Go back to Home</a></li>
                     <li><a href="/download/{{ processed_image }}" alt="Processed Image" class="white-link">Download Your Processed Image</a></li>
                     <li class="nav-item dropdown">
+                        <form method="post" action="{{ url_for('save_to_gallery', processed_image=temp_filename, num_faces=num_faces, num_faces1=num_faces1, num_profiles=num_profiles) }}">
+                            <button type="submit">Share with Gallery</button>
+                        </form>
                         <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Contact us
@@ -135,7 +138,7 @@
                         <li><a href="/" class="white-link">Go back to Home</a></li>
                         <li><a href="{{ url_for('download_image', filename=filename) }}" class="white-link">Download Your Processed Image</a></li>
                         <form method="post" action="{{ url_for('save_to_gallery', processed_image=temp_filename, num_faces=num_faces, num_faces1=num_faces1, num_profiles=num_profiles) }}">
-                            <button type="submit">Share with Gallery</button>
+                            <button type="submit"; font-size: 20px; color: white; background: crimson>Share with Gallery</button>
                         </form>
                         
                         <!-- Add this JavaScript function -->
