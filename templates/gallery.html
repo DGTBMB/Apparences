@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head content here -->
+</head> 
+<h1>Gallery</h1>
+<a href="/">Go back to Home</a>
+<a href="{{ url_for('clear_shared_images') }}">Clear Shared Images</a>
+<a href="{{ url_for('clear_shared_images') }}">Clear Shared Images</a>
+<body>
+    <h1>Gallery</h1>
+
+    <div class="gallery">
+        {% for image_data in shared_images %}
+        {% if image_data['temp_filename'].endswith('.png') %}
+            <p>UUID: {{ image_data['temp_filename'].split('.')[0] }}</p>
+            <img src="{{ url_for('static', filename=image_data['temp_filename']) }}" alt="Shared Image" width="400">
+        {% endif %}
+    {% endfor %}
+
+    {% if new_uuid %}
+        <p>UUID: {{ new_uuid }}</p>
+        <img src="{{ url_for('static', filename='gallery/' + new_uuid + '.png') }}" alt="New Shared Image" width="400">
+    {% endif %}
+
+        {% for image_filename in existing_gallery_images %}
+            {% if image_filename.endswith('.png') %}
+                <p>{{ image_filename }}</p>
+                <img src="{{ url_for('static', filename='gallery/' + image_filename) }}" alt="Gallery Image" width="400">
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <a href="/">Go back to Home</a>
+</body>
+</html>
