@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template, send_from_directory, redirect, url_for
 import os
 import cv2
-import uuid  # Import the uuid module
+from uuid import uuid4  # Import the uuid module
 import shutil
 
 app = Flask(__name__)
