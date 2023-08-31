@@ -118,12 +118,14 @@
     <div class="container">
         <div class="content-container">
             <h1>Processed Image</h1>
-            <img src="{{ url_for('send_image') }}" alt="Processed Image" class="processed-image">
+            <img src="{{ url_for('send_image', filename=processed_image) }}" alt="Processed Image">
+            
         </div>
     </div>
 
     
-         
+    
+
 
        
     <footer class="footer">
@@ -131,7 +133,19 @@
                 <nav>
                     <ul class="nav nav-pills white-link">
                         <li><a href="/" class="white-link">Go back to Home</a></li>
-                        <li><a href="/download/{{ processed_image }}" alt = "Processed Image" class="white-link">Download Your Processed Image</a></li>
+                        <li><a href="{{ url_for('download_image', filename=filename) }}" class="white-link">Download Your Processed Image</a></li>
+                        <form method="post" action="{{ url_for('save_to_gallery', processed_image=temp_filename, num_faces=num_faces, num_faces1=num_faces1, num_profiles=num_profiles) }}">
+                            <button type="submit">Share with Gallery</button>
+                        </form>
+                        
+                        <!-- Add this JavaScript function -->
+                        <script>
+                        function shareWithGallery(tempFilename, numFaces, numFaces1, numProfiles) {
+                            // Redirect to the gallery route with the required parameters
+                            window.location.href = "{{ url_for('gallery') }}" + "?processed_image=" + tempFilename + "&num_faces=" + numFaces + "&num_faces1=" + numFaces1 + "&num_profiles=" + numProfiles;
+                        }
+                        </script>
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
