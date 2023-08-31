@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, render_template, send_from_directory, redirect, url_for
 import os
 import cv2
+import uuid  # Import the uuid module
+import shutil
 
 app = Flask(__name__)
 
@@ -19,6 +21,15 @@ PROCESSED_FOLDER = os.path.join(APP_ROOT, 'static/images')
 face_cascade = cv2.CascadeClassifier('haar/haarcascade_frontalface.xml') 
 face1_cascade = cv2.CascadeClassifier('haar/haarcascade_frontalface1.xml') 
 profile_cascade = cv2.CascadeClassifier('haar/haarcascade_profile.xml')
+
+app.static_folder = 'static'
+# Create an empty list to hold shared image filenames
+shared_images = []
+
+# Create an empty list to hold existing gallery image filenames
+existing_gallery_images = []
+
+image_metadata = {}
 
 # default access page
 @app.route("/")
@@ -84,6 +95,7 @@ def process_cloud_image(upload_path):
         'num_profiles': num_profiles,
         'temp_filename': temp_filename
     }
+    
     return result_cloud
 
 
@@ -119,7 +131,11 @@ def process_fire_image(upload_path):
         'num_faces': num_faces,
         'temp_filename': temp_filename
     }
+    
+    
     return result_fire
+
+
 
 def process_cemetery_image(upload_path):
     img = cv2.imread(upload_path)
@@ -156,7 +172,10 @@ def process_cemetery_image(upload_path):
         'num_profiles': num_profiles,
         'temp_filename': temp_filename
     }
+    
     return result_cemetery
+
+
   
 
 #________ UPLOADS______________________
@@ -184,19 +203,41 @@ def uploadcloud():
     else:
         return render_template("error.html", message="The selected file is not supported"), 400
 
-    # save the file
     destination = os.path.join(target, filename)
     print("File saved to:", destination)
     upload.save(destination)
 
     processed_result = process_cloud_image(destination)
+    print("Processed temp filename:", processed_result['temp_filename'])  # Add this line to check the value
+
     if processed_result['status'] == 'error':
         return render_template("error.html", message="Failed to process the image"), 500
-
-    return redirect(url_for('displaycloud', original_image=filename, processed_image=processed_result['temp_filename'],
-                            num_faces=processed_result['num_faces'], num_faces1=processed_result['num_faces1'], num_profiles=processed_result['num_profiles']))
-
     
+    # Store the processed image filename as a relative path within the static directory
+    processed_image_path = 'images/' + processed_result['temp_filename']
+    
+    # Get the number of faces detected from the processed_result dictionary
+    num_faces = processed_result['num_faces']
+    num_faces1 = processed_result['num_faces1']
+    num_profiles = processed_result['num_profiles']
+
+    # Append the processed image data to the shared_images list
+    shared_images.append({
+        'temp_filename': processed_result['temp_filename'],
+        'num_faces': num_faces,
+        'num_faces1': num_faces1,
+        'num_profiles': num_profiles
+    })
+    
+    # Store the metadata in the image_metadata dictionary using the filename as the key
+    image_metadata[processed_result['temp_filename']] = {
+        'num_faces': num_faces,
+        'num_faces1': num_faces1,
+        'num_profiles': num_profiles
+    }
+
+    return redirect(url_for('displaycloud', original_image=filename, processed_image=processed_image_path,
+                            num_faces=num_faces, num_faces1=num_faces1, num_profiles=num_profiles))
 
 
 @app.route("/uploadfire", methods=["POST"])
@@ -292,10 +333,11 @@ def displaycloud():
     num_faces = int(request.args.get('num_faces', 0))  
     num_faces1 = int(request.args.get('num_faces1', 0)) 
     num_profiles = int(request.args.get('num_profiles', 0))
-    temp_filename = 'temp.png'
+    temp_filename = processed_image          
+    
 
     return render_template("displaycloud.html", original_image=original_image, processed_image=processed_image, num_faces=num_faces, num_faces1=num_faces1, num_profiles=num_profiles, temp_filename=temp_filename)
-
+    
 @app.route("/displayfire")
 def displayfire():
     original_image = request.args.get('original_image')
@@ -319,16 +361,94 @@ def displaycemetery():
 def send_image():
     target = os.path.join(APP_ROOT, 'static/images')
     return send_from_directory(target, 'temp.png')
-    
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route("/download/<filename>")
 def download_image(filename):
     target = os.path.join(APP_ROOT, 'static/images')
     return send_from_directory(target, filename, as_attachment=True)
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
+
+
+@app.route("/gallery")
+def gallery():
+    target_gallery = os.path.join(APP_ROOT, 'static/gallery')
+    existing_gallery_images = [filename for filename in os.listdir(target_gallery) if filename.lower().endswith('.png')]
+
+    # Reverse the shared_images list to display the most recent image at the top
+    reversed_shared_images = shared_images[::-1]
+
+    print("Shared Images List:", shared_images)  # Add this line
+
+    image_saved = False
+    if request.method == "POST":
+        filename = request.form.get("filename")
+        if filename:
+            image_saved = True
+
+    return render_template(
+        'gallery.html',
+        shared_images=reversed_shared_images,
+        existing_gallery_images=existing_gallery_images,
+        image_saved=image_saved
+    )
+
+
+
+
+@app.route("/save_to_gallery", methods=["POST"])
+def save_to_gallery():
+    print("save_to_gallery route accessed")
+    target_gallery = os.path.join(APP_ROOT, 'static/gallery')
+    new_filename = str(uuid.uuid4())  # Generate a unique filename without extension
+
+    # Determine the file extension based on the image format
+    processed_image_extension = 'png'  # Default extension
+    if os.path.exists(os.path.join(APP_ROOT, 'static/images/temp.jpg')):
+        processed_image_extension = 'jpg'
+
+    # Move the processed image from the static/images folder to the static/gallery folder with the correct extension
+    processed_image_path = os.path.join(APP_ROOT, 'static/images/temp.' + processed_image_extension)
+    new_processed_image_path = os.path.join(APP_ROOT, 'static', 'gallery', new_filename + '.' + processed_image_extension)
+    shutil.move(processed_image_path, new_processed_image_path)
+
+    num_faces = int(request.form.get('num_faces', 0))
+    num_faces1 = int(request.form.get('num_faces1', 0))
+    num_profiles = int(request.form.get('num_profiles', 0))
+
+    shared_images.append({
+        'temp_filename': new_filename + '.' + processed_image_extension,
+        'num_faces': num_faces,
+        'num_faces1': num_faces1,
+        'num_profiles': num_profiles
+    })
+    # Store the metadata in the image_metadata dictionary using the UUID-based filename as the key
+    image_metadata[new_filename] = {
+        'num_faces': num_faces,
+        'num_faces1': num_faces1,
+        'num_profiles': num_profiles
+    }
+
+    return redirect(url_for("gallery"))
+
+
+
+@app.route("/clear_shared_images", methods=["GET"])
+def clear_shared_images():
+    global shared_images
+    shared_images = []  # Clear the shared_images list
+    return redirect(url_for("gallery"))
+
+
+
+
+@app.route('/challenge')
+def challenge():
+    return render_template('challenge.html')
 
 if __name__ == "__main__":
     app.run()
