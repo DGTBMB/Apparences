@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Faces Appear</title>
+    <title>Soulful Appearances</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 
@@ -55,6 +55,42 @@
             }
         }
 
+      
+
+        
+        .todo_container {
+            background-color: #f0ffff; /*#3982b8;*/
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+            
+        /* Styles for the todo list */
+        .todo-list {
+            list-style-type: none; /* Use bullet points for the list items */
+            /*padding-left: 20px; /* Add some left padding to the list */
+        }
+            
+        .todo-list li {
+            font-weight: bold; /* Make the list items bold */
+            font-size: 32px;
+            margin-bottom: 10px; /* Add spacing between list items */
+        }
+        .todo_links {
+            color: darkslategray;
+            text-decoration: underline;
+        }
+    
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 20px;
+            }
+        }
+
         .header-text {
             text-align: center;
             flex: 1;
@@ -75,6 +111,17 @@
             font-size: 12px;
         }
 
+        .gallery{
+            background-color: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 20px;
+            text-decoration: underline;
+            text-underline-position: under;
+
+        }
         .header-button {
             background-color: transparent;
             border: none;
@@ -143,7 +190,6 @@
         .image-container-cloud,
         .image-container-fire,
         .image-container-cemetery {
-            background-color: #dcdfea;
             width: 100%; /* Set the desired fixed width (same as height) */
             height: 100% /* Set the desired fixed height */
             /*border-radius: 95%;  /*Make the container circular */
@@ -160,7 +206,7 @@
         }
 
         .submit-button-cloud {
-            background-color: #f0ffff;
+            background-color: #587f9f;
             color: black;
             font-weight: bold;
             display: inline-block;
@@ -176,7 +222,7 @@
         }
 
         .submit-button-cloud:hover {
-            background-color: #9bb3c4
+            background-color: #6d8ba3
         }
 
         .submit-button-cloud:active {
@@ -201,7 +247,7 @@
         }
 
         .submit-button-fire {
-            background-color: #foffff;
+            background-color: #740a0ad1;
             color: black;
             font-weight: bold;
             display: inline-block;
@@ -217,7 +263,7 @@
         }
 
         .submit-button-fire:hover {
-            background-color: #9bb3c4
+            background-color: #6d8ba3
         }
 
         .submit-button-fire:active {
@@ -243,7 +289,7 @@
         }
 
         .submit-button-cemetery {
-            background-color: #foffff;
+            background-color: #8e8d8a;
             color: black;
             font-weight: bold;
             display: inline-block;
@@ -259,7 +305,7 @@
         }
 
         .submit-button-cemetery:hover {
-            background-color: #9bb3c4
+            background-color: #6d8ba3
         }
 
         .submit-button-cemetery:active {
@@ -294,12 +340,12 @@
         }
 
         .processing-container {
-            background-color: #9cb0c1;
+            background-color: #8899a7;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            width: 100%
+            width:100%
         }
 
         .processing-message {
@@ -310,7 +356,8 @@
 
         .additional-messages {
             display: none; /* Hide the additional messages initially */
-            color: black; /* Color for the additional messages */
+            color: darkslategray; /* Color for the additional messages */
+            background color: #f0ffff; 
             font-size: 20px; /* Font size for the additional messages */
             margin-top: 20px; /* Add some spacing between messages */
         }
@@ -326,20 +373,35 @@
 
 <body>
     <div class="header">
-        <div class= "header_container">
+    <div class= "header_container">
         <div class="header-text">
+            <h4 style="ccolor:  rgb(9,69,128)" >FacesAppear.com</h4>
+            <h3 style= "color:  rgb(9,69,128); font-size: 40px"><strong>Upload  pictures to reveal hidden faces in:</strong></h3> 
             
-            <h4 style="color: rgb(17, 17, 12)"> Welcome to FacesAppear.com</h4>
-            <h1 style= "color: black"><strong>Revealing hidden faces with Artificial Intelligence!</strong></h1>     
-            <h4>  <span style= "color: goldenrod; font-size: 32px"><strong>Scroll</strong></span><h3><h4 span style= "color: black; font-size:20px"><strong> to see 3 fun choices</strong></h4>
-            <h4>  <span style= "color: goldenrod; font-size: 32px"><strong>Upload</strong></span><h3><h4 style= "color: black; font-size:20x"><strong> your pictures</strong></h4>
-            <h6 style="color: rgb(17, 17, 12)"> For entertainment purposes only.</h6>
+            <div class="todo_container">
+                <ul class="todo-list">
+                
+                <li><a href="#cloud" class="todo_links" span style= "color: goldenrod; font-size: 28px">Clouds</a> </li></span>
+                <li><a href="#fire" class="todo_links" span style= "color: goldenrod; font-size: 28px">Campfires </a> </li></span>
+                <li><a href="#cemetery" class="todo_links" span style= "color: goldenrod; font-size: 28px">Walks in nature</a> </li></span>
+                
+                <li><a href="/gallery" class="todo_links" span style= "color: rgb(9,69,128); font-size: 40px">Visit our Gallery</a></li></span>
+                
+                
+                
+                <li><a href="/about" class="header-button" ; style="color: rgb(9,69,128)"><strong><u>About</u></strong></a></li>   
+                    
+                </ul>
+            </div>
+            <h4 style="color:  rgb(9,69,128)"> </h4> 
             
             
-            <a href="/about" class="header-button" ; style="color:slategray"><strong><u>About</u></strong></a>
-         
+            <h6 style="color:  rgb(9,69,128)"> For entertainment purposes only</h6>
+            
+            
+            <a href="/about" class="header-button" ; style="color:white">About</a>
         </div>
-        </div>
+    </div>
     </div>
 
 
@@ -349,7 +411,7 @@
     <h2 style="color: rgb(17, 17, 12)"><strong> Faces in the clouds</strong></h2>
     <h3 style="color: rgb(17, 17, 12)">See the parade of characters in the sky </h3></span>
     
-    <div class="row1 row-container">
+    <div class="row1 row-container"  id= "cloud">
         <div class="image-container-cloud" style="width: 95%;">
 
             <img src="{{ url_for('static', filename='cloud48.png') }}" alt="Pictures of clouds in the sky"
@@ -368,7 +430,7 @@
                 <label for="file-picker-cloud" class="submit-button-cloud"><i class="fas fa-cloud-upload-alt"></i>
                     Upload your Cloud Photo</label>
             </form>
-            <h3 style="color: black"><strong> or  </strong></h3></span>
+            <h3 style="color: black"><strong> or </strong></h3></span>
 
             <form id="upload-form-cloud-camera" action="{{ url_for('uploadcloud') }}" method="POST"
                 enctype="multipart/form-data">
@@ -380,11 +442,11 @@
         </div>
     </div>
          <div class="processing-container">
-            <p id="processing-cloud" class="processing-message" style="color: black; font-size: 18px"><strong>Processing...Please be
+            <p id="processing-cloud" class="processing-message" style="color: black; font-size: 24px"><strong>Processing...Please be
                     patient, it may take up to 30 seconds to process.....</strong></p>
             <div class="additional-messages">
-                <span style="color: white; font-size: 18px"><strong><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></strong></span> 
-                <span style="color: black font-size: 18px">Transfer your family movies and videos to digital. 207-415-1374   Website: <u><stong></stong><a style="color: white" href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></u></strong></span>
+                <span style="color: white; font-size: 18px"><strong><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></span> 
+                <span style="color: black font-size: 18px"><strong>Transfer your family movies and videos to digital. 207-415-1374   Website: <u><a style="color: white" href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></u></strong></span>
             </div>
          </div>
     
@@ -395,7 +457,7 @@
     <h2 style="color: rgb(17, 17, 12)"><strong>Campfire Visions</strong></h2>
     <h3 style="color: rgb(17, 17, 12)">See the manifestations of your campfire </h3></span>
     
-    <div class="row3 row-container">
+    <div class="row3 row-container" id="fire">
 
         <div class="image-container-fire" style="width: 95%">
 
@@ -434,27 +496,28 @@
     </div>
    
 
-     <div class="processing-container">
-            <p id="processing-fire" class="processing-message" style="color: black; font-size: 18px"><strong>Processing...Please be
-                    patient, it may take up to 30 seconds to process.....</strong></p>
-            <div class="additional-messages">
-                <span style="color: white; font-size: 18px"><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</strong></a></span> 
-                <span style="color: black font-size: 18px">Transfer your family movies and videos to digital. 207-415-1374   Website: <u><strong><a style="color: white" href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></u></strong></span>
-            </div>
-         </div>
+    <div class="processing-container">
+        <p id="processing-fire" class="processing-message" style="color: #e85a4f; font-size: 24px"><strong>Processing...Please be
+            patient, it may take up to 30 seconds to process.....</strong></p>
+    <div class="additional-messages">
+        <span style="font-size: 18px"><strong><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></span> <span style= "color: #03589e; font-size: 24px"> Bringing your Vision to the World!</strong></span>
+        <span style="font-size: 18px"><strong>To transfer your family movies and videos to a digital platform: contact 207-415-1374   Website: <u><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></u></strong></span>
+    </div>
+ </div>
+
     <!--  Trail Visions - -->
 
     <h2 style="color: rgb(17, 17, 12)"><strong> Trail Visions</strong></h2>
-    <h3 style="color: rgb(17, 17, 12)">See what faces appear in the woods</h3></span>
+    <h3 style="color: rgb(17, 17, 12)">See what faces<i> appear </i> in the woods</h3></span>
     <div class="row5 row-container">
 
         <div class="image-container-cemetery" style="width: 95%">
 
-            <img src="{{ url_for('static', filename='epic9.png') }}" alt="Picture taken in woods near a stream"
+            <img src="{{ url_for('static', filename='reg36.png') }}" alt="Picture taken in woods near a stream"
                 class="cemetery-image">
         </div>
     </div>
-        <div class="row6 row-container">
+        <div class="row6 row-container" id="cemetery">
         <div class="submit-container-cemetery" style="width: 80%;">
             
             <form id="upload-form-cemetery" action="{{ url_for('uploadcemetery') }}" method="POST"
@@ -477,19 +540,19 @@
         </div>
      </div>
      <div class="processing-container">
-            <p id="processing-cemetery" class="processing-message" style="color: black; font-size: 18px"><strong>Processing...Please be
-                    patient, it may take up to 30 seconds to process.....</strong></p>
-            <div class="additional-messages">
-                <span style="color: white; font-size: 18px"><strong><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></strong></span> 
-                <span style="color: black font-size: 18px">Transfer your family movies and videos to digital. 207-415-1374   Website: <u><strong><a style="color: white" href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></u></strong></span>
-            </div>
-         </div>
+        <p id="processing-cemetery" class="processing-message" style="color: #e85a4f; font-size: 24px"><strong>Processing...Please be
+            patient, it may take up to 30 seconds to process.....</strong></p>
+    <div class="additional-messages">
+        <span style="font-size: 18px"><strong><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></span> <span style= "color: #03589e; font-size: 24px"> Bringing your Vision to the World!</strong></span>
+        <span style="font-size: 18px"><strong>To transfer your family movies and videos to a digital platform: contact 207-415-1374   Website: <u><a href="http://www.groffvideo.com/transfer-media.html" target="_blank">GROFF VIDEO</a></u></strong></span>
+    </div>
+ </div>
 </div>
 
 
     <footer class="footer">
-        <h6 style="color: rgb(17, 17, 12)"> This website is intended to supplement human imagination and offers an additional, albiet fun, perspective about our surroundings. The algorithms find configurations of shapes that appear similar to a face, but are not evidence of actual beings.  Each algorithm was optimized for its specific task. Enjoy!!</h6>
-        <h6 style="color:rgb(17, 17, 12)">© 2023 FacesAppear.com all rights reserved.  Brought to you by GroffVideo and <span style="color:
+        <h6 style="color: rgb(17, 17, 12)"> This website is intended to supplement human imagination and offers an additional, albiet fun, perspective about our surroundings. The algorithms find configurations of shapes that appear similar to a face, but are not evidence of acutal beings.  Each algorithm was optimized for its specific task. Enjoy!!</h6>
+        <h6 style="color:rgb(17, 17, 12)">© 2023 FacesAppear.com all rights reserved.  Brought to you by <span style="color:
                 cornflowerblue">TransparenC Analytics</span></h6>
     </footer>
 
