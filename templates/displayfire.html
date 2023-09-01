@@ -2,53 +2,40 @@
 <html>
 <head>
     <title>Soulful Flames</title>
-      <style>
-        
-          .header {
-            background-color: #dcdfea;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px; /* Add margin to create space at the top */
-            margin-bottom: 20px; /* Add margin to create space at the bottom */
-    }
     
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
 
-        .header_container {
-            background-color: #f0ffff;
-            color: darkslategray;
-            padding: 20px;
-            text-align: center;
-            width: 85%;
-            height: 85%;
-            /*max-width: 1200px; /* Set a maximum width to avoid excessive stretching */
-            box-shadow: 0 9px #999;
-            display: inline-block;
-            
-    }
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-          .header-text {
-            text-align: center;
-            color: black;
-            font-weight: bold;
-            font-size: 30px;
+    <style>
+        .header {
+            background-color: #3a6f9b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-       
+        .header-text {
+            text-align: center;
+        }
+
         .nav-container {
             text-align: center;
             font-size: 18px; /* Adjust the font size as needed */
         }
 
         .white-link {
-            color: black;
-            font-weight: bold;
+            color: white;
         }
 
         .container {
             display: grid;
             place-items: center;
+            height: 100vh;
         }
 
         .content-container {
@@ -62,46 +49,31 @@
             height: auto;
         }
 
-          .groffcontainer{
-            background-color: #44577ad1;
-            color: white;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            margin-top: auto;
-        }  
-
         .footer {
-          background-color:  #f0ffff;
+          background-color: #3a6f9b;
           padding: 20px;
           text-align: center;
           margin-top: auto;
           width: 100%;
         }
-        /* Media query for smaller screens (mobile devices) */
-@media (max-width: 768px) {
-    .content-container {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
-        align-items: center; /* Center elements horizontally on smaller screens */
-    }
 
     </style>
 </head>
 
 <body>
     <div class="header">
-        <div class = "header_container">
         <div class="header-text">
-            <h1>Wow, there were {{ num_faces }} manifestations in your campfire!</h1>
-            <h6>Zoom in for more entertainment!</h6>
+            <h1><span style="color: white">Wow, there were {{ num_faces }} manifestations in your campfire!</span></h1>
+            <h6><span style="color: white">Zoom in for more entertainment!</span></h6>
         </div>
 
         
             <div class="nav-container">
             <nav>
                 <ul class="nav nav-pills white-link">
-                    <li><a href="/" class="white-link">Go back to Home</a></li>
+                    <li><a href="/" class="white-link">Go back to Home now</a></li>
                     <li><a href="/download/{{ processed_image }}" alt="Processed Image" class="white-link">Download Your Processed Image</a></li>
+                   
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -109,13 +81,12 @@
                         </a>
                         <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item white-link"
-                                href="mailto:admin@FacesAppear.com?subject=FacesAppear site - Issues&body=I am facing an issue with the website!">admin@FacesAppear.com</a>
+                                href="mailto:admin@FacesAppear.com?subject=Faces Appear site - Issues&body=I am facing an issue with the website!">admin@In2clouds.org</a>
                         </div>
                     </li>
                 </ul>
             </nav>
         </div>
-     </div> 
        
     </div>
 
@@ -125,6 +96,8 @@
             <img src="{{ url_for('send_image') }}" alt="Processed Image" class="processed-image">
         </div>
     </div>
+    </div>
+
 
     
        
