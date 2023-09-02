@@ -60,9 +60,11 @@
         
         .todo_container {
             background-color: #f0ffff; /*#3982b8;*/
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
             margin-top: 20px;
             margin-bottom: 20px;
-            text-align: center;
         }
             
         /* Styles for the todo list */
@@ -80,13 +82,7 @@
             color: darkslategray;
             text-decoration: underline;
         }
-        
-         /* Media query for smaller screens */
-        @media (max-width: 768px) {
-            .todo_container {
-                font-size: 28px;
-            }
-        }
+    
 
         /* Media query for smaller screens */
         @media (max-width: 768px) {
@@ -379,25 +375,28 @@
     <div class="header">
     <div class= "header_container">
         <div class="header-text">
-            <h4 style="color:  darkslategray" >FacesAppear.com</h4>
-            <h3 style= "color: darkslategray; font-size: 40px"><strong>Upload pictures to reveal hidden faces!</strong></h3> 
+            <h4 style="ccolor:  rgb(9,69,128)" >FacesAppear.com</h4>
+            <h3 style= "color:  rgb(9,69,128); font-size: 40px"><strong>Upload  pictures to reveal hidden faces in:</strong></h3> 
+            
+            <div class="todo_container">
+                <ul class="todo-list">
                 
-                <a href="#cloud" class="todo_links" span style= "color: goldenrod; font-size: 28px">Clouds</a> </span>
-               <a href="#fire" class="todo_links" span style= "color: goldenrod; font-size: 28px">Campfires </a></span>
-                <a href="#cemetery" class="todo_links" span style= "color: goldenrod; font-size: 28px">Nature</a> </span>
+                <li><a href="#cloud" class="todo_links" span style= "color: goldenrod; font-size: 28px">Clouds</a> </li></span>
+                <li><a href="#fire" class="todo_links" span style= "color: goldenrod; font-size: 28px">Campfires </a> </li></span>
+                <li><a href="#cemetery" class="todo_links" span style= "color: goldenrod; font-size: 28px">Walks in nature</a> </li></span>
                 
-               <p> <a href="/gallery" class="todo_links" span style= "darkslategray; font-size: 20px">Gallery</a></span></p>
+                <li><a href="/gallery" class="todo_links" span style= "color: rgb(9,69,128); font-size: 40px">Visit our Gallery</a></li></span>
                 
                 
                 
-                <p><a href="/about" class="todo_links" ; style="color: darkslategray"><strong><u>About</u></strong></a></p>   
+                <li><a href="/about" class="header-button" ; style="color: rgb(9,69,128)"><strong><u>About</u></strong></a></li>   
                     
                 </ul>
             </div>
-            <h4 style="color:  darkslategray"> </h4> 
+            <h4 style="color:  rgb(9,69,128)"> </h4> 
             
             
-            <h6 style="color:  darkslategray"> For entertainment purposes only</h6>
+            <h6 style="color:  rgb(9,69,128)"> For entertainment purposes only</h6>
             
             
             <a href="/about" class="header-button" ; style="color:white">About</a>
@@ -410,7 +409,7 @@
     <!-- Row: Characters in the Clouds - Take a Photo and Upload a Photo -->
 
     <h2 style="color: rgb(17, 17, 12)"><strong> Faces in the clouds</strong></h2>
-    <h3 style="color: rgb(17, 17, 12)">See the cast of characters in the sky </h3></span>
+    <h3 style="color: rgb(17, 17, 12)">See the parade of characters in the sky </h3></span>
     
     <div class="row1 row-container"  id= "cloud">
         <div class="image-container-cloud" style="width: 95%;">
