@@ -176,9 +176,6 @@ def process_cemetery_image(upload_path):
     return result_cemetery
 
 
-  
-
-#________ UPLOADS______________________
 @app.route("/uploadcloud", methods=["POST"])
 def uploadcloud():
     target = os.path.join(APP_ROOT, 'static/images/')
@@ -233,6 +230,9 @@ def uploadcloud():
 
     return redirect(url_for('displaycloud', original_image=filename, processed_image=processed_image_path,
                             num_faces=num_faces, num_faces1=num_faces1, num_profiles=num_profiles))
+  
+
+
 
 
 
