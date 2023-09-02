@@ -68,12 +68,23 @@
         </div>
 
         
-            <div class="nav-container">
+        <div class="nav-container">
             <nav>
                 <ul class="nav nav-pills white-link">
                     <li><a href="/" class="white-link">Go back to Home now</a></li>
                     <li><a href="/download/{{ processed_image }}" alt="Processed Image" class="white-link">Download Your Processed Image</a></li>
-                   
+                    <form method="post" action="{{ url_for('save_to_gallery', processed_image=temp_filename, num_faces=num_faces,  num_profiles=num_profiles) }}">
+                        <button type="submit" style="background-color: transparent; color: white; font-size: 18px;">Share with Gallery</button>
+                    </form>
+                    
+                    <!-- Add this JavaScript function -->
+                    <script>
+                    function shareWithGallery(tempFilename, numFaces, numFaces1, numProfiles) {
+                        // Redirect to the gallery route with the required parameters
+                        window.location.href = "{{ url_for('gallery') }}" + "?processed_image=" + tempFilename + "&num_faces=" + numFaces + "&num_profiles=" + numProfiles;
+                    }
+                    </script>
+                    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -120,7 +131,7 @@
                     </ul>
                 </nav>
             </div>
-          <h5 style = "color: white"> This is for entertainment purposes only. This technology was optimized for finding shapes resembling facial features in the landscape and there are foten a lot of shapes!</h5> 
+          <h5 style = "color: white"> This is for entertainment purposes only. This technology was optimized for finding shapes resembling facial features in the landscape</h5> 
             <h6 style="color:white">© 2023 </span><span style= "color: cornflowerblue"><i>TransparenC Analytics</i></span><span style="color:white"> all rights reserved.</span> </h6>
         </div>
     </footer>
@@ -128,3 +139,4 @@
    
 </body>
 </html>
+
