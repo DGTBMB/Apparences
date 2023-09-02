@@ -210,23 +210,7 @@ def uploadcloud():
     if processed_result['status'] == 'error':
         return render_template("error.html", message="Failed to process the image"), 500
 
-    processed_image_path = 'images/' + processed_result['temp_filename']
-    num_faces = processed_result['num_faces']
-    num_faces1 = processed_result['num_faces1']
-    num_profiles = processed_result['num_profiles']
-
-    shared_images.append({
-        'temp_filename': processed_result['temp_filename'],
-        'num_faces': num_faces,
-        'num_faces1': num_faces1,
-        'num_profiles': num_profiles
-    })
-
-    image_metadata[processed_result['temp_filename']] = {
-        'num_faces': num_faces,
-        'num_faces1': num_faces1,
-        'num_profiles': num_profiles
-    }
+   
 
     return redirect(url_for('displaycloud', original_image=filename, processed_image=processed_image_path,
                             num_faces=num_faces, num_faces1=num_faces1, num_profiles=num_profiles))
