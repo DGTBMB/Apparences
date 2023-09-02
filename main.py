@@ -319,9 +319,9 @@ def uploadcemetery():
 #______Processing...________
 
 # default access page
-@app.route("/")
-def processing():
-    return render_template('processing.html')
+#@app.route("/")
+#def processing():
+   # return render_template('processing.html')
 
 
 #________Display _______
