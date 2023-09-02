@@ -194,7 +194,7 @@ def uploadcloud():
     # retrieve the file from the HTML file picker
     upload = request.files.getlist("image")[0]
     print("File name: {}".format(upload.filename))
-    filename = upload.filename
+    filename = upload.filename  # Define the filename
 
     # file support verification
     ext = os.path.splitext(filename)[1]
@@ -208,28 +208,23 @@ def uploadcloud():
     upload.save(destination)
 
     processed_result = process_cloud_image(destination)
-    print("Processed temp filename:", processed_result['temp_filename'])  # Add this line to check the value
+    print("Processed temp filename:", processed_result['temp_filename'])
 
     if processed_result['status'] == 'error':
         return render_template("error.html", message="Failed to process the image"), 500
-    
-    # Store the processed image filename as a relative path within the static directory
+
     processed_image_path = 'images/' + processed_result['temp_filename']
-    
-    # Get the number of faces detected from the processed_result dictionary
     num_faces = processed_result['num_faces']
     num_faces1 = processed_result['num_faces1']
     num_profiles = processed_result['num_profiles']
 
-    # Append the processed image data to the shared_images list
     shared_images.append({
         'temp_filename': processed_result['temp_filename'],
         'num_faces': num_faces,
         'num_faces1': num_faces1,
         'num_profiles': num_profiles
     })
-    
-    # Store the metadata in the image_metadata dictionary using the filename as the key
+
     image_metadata[processed_result['temp_filename']] = {
         'num_faces': num_faces,
         'num_faces1': num_faces1,
@@ -238,6 +233,7 @@ def uploadcloud():
 
     return redirect(url_for('displaycloud', original_image=filename, processed_image=processed_image_path,
                             num_faces=num_faces, num_faces1=num_faces1, num_profiles=num_profiles))
+
 
 
 @app.route("/uploadfire", methods=["POST"])
