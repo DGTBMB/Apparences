@@ -79,7 +79,7 @@
                     
                     <!-- Add this JavaScript function -->
                     <script>
-                    function shareWithGallery(tempFilename, numFaces, numFaces1, numProfiles) {
+                    function shareWithGallery(tempFilename, numFaces,  numProfiles) {
                         // Redirect to the gallery route with the required parameters
                         window.location.href = "{{ url_for('gallery') }}" + "?processed_image=" + tempFilename + "&num_faces=" + numFaces + "&num_profiles=" + numProfiles;
                     }
