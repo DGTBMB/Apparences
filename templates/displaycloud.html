@@ -120,7 +120,7 @@
                 <nav>
                     <ul class="nav nav-pills white-link">
                         <li><a href="/" class="white-link">Go back to Home</a></li>
-                        <li><a href="{{ url_for('download_image', filename=filename) }}" class="white-link">Download Your Processed Image</a></li>
+                        <li><a href="/download/{{ processed_image }}" alt="Processed Image" class="white-link">Download Your Processed Image</a></li>
                         
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
