@@ -218,7 +218,7 @@ def uploadcloud():
   
    
 
-    return redirect(url_for('displaycloud', original_image=filename, processed_image=processed_image_path,
+    return redirect(url_for('displaycloud', original_image=filename, processed_image=processed_result['temp_filename'],
                             num_faces=num_faces, num_faces1=num_faces1, num_profiles=num_profiles))
   
 
