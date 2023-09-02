@@ -73,17 +73,6 @@
                 <ul class="nav nav-pills white-link">
                     <li><a href="/" class="white-link">Go back to Home now</a></li>
                     <li><a href="/download/{{ processed_image }}" alt="Processed Image" class="white-link">Download Your Processed Image</a></li>
-                    <form method="post" action="{{ url_for('save_to_gallery', processed_image=temp_filename, num_faces=num_faces,  num_profiles=num_profiles) }}">
-                        <button type="submit" style="background-color: transparent; color: white; font-size: 18px;">Share with Gallery</button>
-                    </form>
-                    
-                    <!-- Add this JavaScript function -->
-                    <script>
-                    function shareWithGallery(tempFilename, numFaces,  numProfiles) {
-                        // Redirect to the gallery route with the required parameters
-                        window.location.href = "{{ url_for('gallery') }}" + "?processed_image=" + tempFilename + "&num_faces=" + numFaces + "&num_profiles=" + numProfiles;
-                    }
-                    </script>
                     
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
