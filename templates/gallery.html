@@ -6,11 +6,13 @@
 
  <style>
         .gallery-row {
-            display: column;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
             gap: 5px; /* Adjust the gap between images */
         }
+
 
         .gallery-image {
             max-width: 100%;
@@ -23,7 +25,7 @@
 <a href="/">Go back to Home</a>
 
 <body>
-    <h1>Gallery</h1>
+    
 
 <div class="gallery">
     <div class="gallery-row">
