@@ -47,7 +47,7 @@
         {% for image_filename in existing_gallery_images %}
             {% if image_filename.endswith('.png') %}
                 <p>{{ image_filename }}</p>
-                <img src="{{ url_for('static', filename='gallery/' + image_filename) }}" alt="Gallery Image" >
+                <img src="{{ url_for('static', filename='gallery/' + image_filename) }}" alt="Gallery Image" width="800">
             {% endif %}
         {% endfor %}
     </div>
