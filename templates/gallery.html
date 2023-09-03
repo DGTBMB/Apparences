@@ -40,7 +40,7 @@
 
     {% if new_uuid %}
         <p>UUID: {{ new_uuid }}</p>
-        <img src="{{ url_for('static', filename='gallery/' + new_uuid + '.png') }}" alt="New Shared Image" width="400">
+        <img src="{{ url_for('static', filename='gallery/' + new_uuid + '.png') }}" alt="New Shared Image" width="400" >
     {% endif %}
  </div>
         
@@ -50,7 +50,8 @@
         {% for image_filename in existing_gallery_images %}
             {% if image_filename.endswith('.png') %}
                 <p>{{ image_filename }}</p>
-                <img src="{{ url_for('static', filename='gallery/' + image_filename) }}" alt="Gallery Image" width="400">
+                <img src="{{ url_for('static', filename='gallery/' + Gallery1.png) }}" alt="Gallery Image" >
+                <img src="{{ url_for('static', filename='gallery/' + image_filename) }}" alt="Gallery Image" >
             {% endif %}
         {% endfor %}
     </div>
