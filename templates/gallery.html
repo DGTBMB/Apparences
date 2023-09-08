@@ -44,13 +44,54 @@
         
     <div class="gallery-row">
 
-        {% for image_filename in existing_gallery_images %}
-            {% if image_filename.endswith('.png') %}
+      {% for image_filename in existing_gallery_images %}
+            {% if image_filename.endswith(('.png', '.jpg', '.JPG')) %}
                 <p>{{ image_filename }}</p>
-                <img src="{{ url_for('static', filename='gallery/' + image_filename) }}" alt="Gallery Image" width="1000">
+                <img src="{{ url_for('static', filename='gallery/' +'4e86b3ea-fbba-4c0b-ad2c-8cf863692644.jpg') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'7ca707f7-7a6b-4ab4-9063-32f324f0d844.jpg') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'9d1e9888-ddab-47ba-b030-348142377bcd.jpg') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'81cb1003-ab93-452c-86a7-a181432e247f.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'temp13.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'b3a6c339-28f8-4008-a7e5-3824a0b486cc.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'0z9tud8r.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'2fccf38b-f56d-400f-9ae1-4dc9a62ee8aa.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'3afcd0ba-f7db-4a2f-98b8-fcd9d411ae51.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'39ea7605-8d62-4dfa-806e-642943e1c6c9.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'72a92d07-be72-461c-928f-5038b78f7536.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'f8c4363a-9ffe-46a1-81e1-856677aa5ad1.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'a387575b-cd49-4542-8fbb-f78a528f4f32.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'8b073d96-19a8-40f9-9cd0-55bbdc18c28a.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'b8666a0b-f21f-48b1-b6e9-0a4c38e27412.jpg') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'bce56cd7-f3df-4cd0-b024-9172804b21da.jpg') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'cloud1.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'cloud2.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'f35e28d6-de1e-48a4-bbe4-75c2cb26eeff.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'fdba8395-1187-483d-8789-36398d4ec1da.JPG') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'gallery3.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'temp55.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'fire2.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'fire3.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'fire4.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'gallery4.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'temp41.png') }}" alt="Gallery Image" width="700">
+                <img src="{{ url_for('static', filename='gallery/' +'temp43.png') }}" alt="Gallery Image" width="700">
+                
+
             {% endif %}
         {% endfor %}
+
+      
+               
+            
     </div>
+    
+
+    <a href="/">Go back to Home</a>
+</body>
+</html>
+
+
+       
 
     <a href="/">Go back to Home</a>
 </body>
