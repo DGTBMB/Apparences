@@ -431,14 +431,9 @@
             </form>
             <h3 style="color: black"><strong> or </strong></h3></span>
 
-            <form id="upload-form-cloud-camera" action="{{ url_for('uploadcloud') }}" method="POST"
-                enctype="multipart/form-data">
-                <input id="file-picker-cloud" type="file" name="image" accept="image/*" capture="camera" class="hidden"
-                    onchange="showProcessingMessage('processing-cloud'); this.form.submit()">
-                <label for="file-picker-cloud" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
-                    Photo</label>
-            </form>
+           <a href="/gallery#section1" class="submit-button-cloud">See examples in Clouds Gallery</a>
         </div>
+        
     </div>
          <div class="processing-container">
             <p id="processing-cloud" class="processing-message" style="color: black; font-size: 24px"><strong>Processing...Please be
@@ -484,13 +479,7 @@
 
             <h3 style="color: black"><strong>or</strong></h3></span>
 
-            <form id="upload-form-fire" action="{{ url_for('uploadfire') }}" method="POST"
-                enctype="multipart/form-data">
-                <input id="file-picker-fire" type="file" name="image" accept="image/*" capture="camera" class="hidden"
-                    onchange="showProcessingMessage('processing-fire'); this.form.submit()">
-                <label for="file-picker-fire" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
-                    Photo</label>
-            </form>
+              <a href="/gallery#section2" class="submit-button-cloud">See examples in CAMPFIRE Gallery</a>
         </div>
     </div>
    
@@ -529,13 +518,7 @@
 
             <h3 style="color: black"><strong> or </strong></span></h3>
 
-            <form id="upload-form-cemetery" action="{{ url_for('uploadcemetery') }}" method="POST"
-                enctype="multipart/form-data">
-                <input id="file-picker-cemetery" type="file" name="image" accept="image/*" capture="camera" class="hidden"
-                    onchange="showProcessingMessage('processing-cemetery'); this.form.submit()">
-                <label for="file-picker-cemetery" class="submit-button-cloud"><i class="fas fa-camera"></i> Take
-                    Photo</label>
-            </form>
+              <a href="/gallery#section3" class="submit-button-cloud">See examples in the NATURE Gallery</a>
         </div>
      </div>
      <div class="processing-container">
