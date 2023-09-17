@@ -157,7 +157,7 @@ def process_cloud_image(upload_path):
         
         combined_img = np.hstack((result_img_rectangles, white_image,))
     
-        final_combined_image = np.hstack((combined_img, result_img_color_mapped_faces))
+        final_combined_image = np.hstack((result_img_color_mapped_faces, combined_img,))
 
 
 
@@ -227,7 +227,7 @@ def process_fire_image(upload_path):
     temp_destination = os.path.join(UPLOADS_FOLDER, temp_filename)
 
     # Save the combined image with rectangles and colormap
-    cv2.imwrite(temp_destination, final_combined_image)
+    cv2.imwrite(final_combined_image, temp_destination)
 
     # Remove the uploaded image
     os.remove(upload_path)
@@ -354,7 +354,7 @@ def process_cemetery_image(upload_path):   ### BONE GOOD FOR FIRE####
     temp_destination = os.path.join(UPLOADS_FOLDER, temp_filename)
 
     # Save the combined image with rectangles and colormap
-    cv2.imwrite(temp_destination, final_combined_image)
+    cv2.imwrite(final_combined_image, temp_destination)
 
     # Remove the uploaded image
     os.remove(upload_path)
