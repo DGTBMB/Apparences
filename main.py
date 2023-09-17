@@ -157,7 +157,7 @@ def process_cloud_image(upload_path):
         
         combined_img = np.hstack((result_img_rectangles, white_image,))
     
-        final_combined_image = np.hstack((result_img_color_mapped_faces, combined_img,))
+        final_combined_image = np.hstack((combined_img, result_img_color_mapped_faces))
 
 
 
@@ -217,9 +217,9 @@ def process_fire_image(upload_path):
     
     # Combine the two processed images side by side
     
-    combined_img = np.hstack((processed_img1, white_image,))
+    combined_img = np.hstack(( white_image, processed_img1))
     
-    final_combined_image = np.hstack((combined_img, result_img_color_mapped_faces))
+    final_combined_image = np.hstack(( result_img_color_mapped_faces, combined_img,))
     # Count the number of faces detected
     num_faces = len(faces)
 
@@ -227,7 +227,7 @@ def process_fire_image(upload_path):
     temp_destination = os.path.join(UPLOADS_FOLDER, temp_filename)
 
     # Save the combined image with rectangles and colormap
-    cv2.imwrite(final_combined_image, temp_destination)
+    cv2.imwrite(temp_destination, final_combined_image)
 
     # Remove the uploaded image
     os.remove(upload_path)
@@ -342,9 +342,9 @@ def process_cemetery_image(upload_path):   ### BONE GOOD FOR FIRE####
         processed_img2[y:y + h, x:x + w] = color_mapped_roi
     
     # Combine the two processed images side by side
-    combined_img = np.hstack((processed_img1, white_image,))
+    combined_img = np.hstack(( white_image, processed_img1))
     
-    final_combined_image = np.hstack((combined_img, processed_img2))
+    final_combined_image = np.hstack(( processed_img2, combined_img))
 
     # Count the number of faces detected
     num_faces = len(faces)
@@ -354,7 +354,7 @@ def process_cemetery_image(upload_path):   ### BONE GOOD FOR FIRE####
     temp_destination = os.path.join(UPLOADS_FOLDER, temp_filename)
 
     # Save the combined image with rectangles and colormap
-    cv2.imwrite(final_combined_image, temp_destination)
+    cv2.imwrite(temp_destination, final_combined_image)
 
     # Remove the uploaded image
     os.remove(upload_path)
