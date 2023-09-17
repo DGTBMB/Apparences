@@ -32,31 +32,70 @@
             color: white;
         }
 
-        .container {
-            display: grid;
-            place-items: center;
-            height: 100vh;
-        }
-
         .content-container {
-            text-align: center;
-            max-width: 90%;
-            margin-bottom: 20px;
+            margin: 0 auto; /* Center content horizontally */
+            max-width: 90%; /* Ensure content stays within the viewport width */
         }
 
-        .processed-image {
+        @media (max-width: 768px) {
+            .content-container {
+                margin: 0; /* Remove margins on smaller screens */
+            }
+        }
+        
+        .left-container {
+            width: 45%; /* Set left container width to 50% */
+        }
+        
+        .right-container {
+            width: 45%;
+        }
+
+        .processed-image,
+        .roi-image {
             max-width: 100%;
             height: auto;
+            transition: transform 0.2s ease; /* Add a smooth transition effect */
         }
 
         .footer {
-          background-color: #3a6f9b;
-          padding: 20px;
-          text-align: center;
-          margin-top: auto;
-          width: 100%;
+            background-color: #3a6f9b;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+            width: 100%;
         }
 
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%; /* Adjust the width as needed */
+            height: auto; /* Allow the container to adjust its height */
+        }
+
+        .zoomable-image-left,
+        .zoomable-image-right {
+            cursor: zoom-in;
+        }
+
+        .zoomable-image-right,
+        .zoomable-image-right {
+            cursor: zoom-in;
+        }
+
+        
+
+        .roi-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three columns */
+            gap: 10px; /* Adjust spacing between ROIs */
+        }
+        
+        .roi-image img {
+            max-width: 100%; /* Ensure images don't exceed their container's width */
+            height: auto; /* Maintain image aspect ratio */
+        }
+        
     </style>
 </head>
 
@@ -67,14 +106,23 @@
             <h6><span style="color: white">Zoom in for more entertainment!</span></h6>
         </div>
 
-        
         <div class="nav-container">
             <nav>
                 <ul class="nav nav-pills white-link">
                     <li><a href="/" class="white-link">Go back to Home now</a></li>
                     <li><a href="/download/{{ processed_image }}" alt="Processed Image" class="white-link">Download Your Processed Image</a></li>
-                   
-                    
+                    <form method="post" action="{{ url_for('save_to_gallery', processed_image=temp_filename, num_faces=num_faces) }}">
+                        <button type="submit" style="background-color: transparent; color: white; font-size: 18px;">Share with Gallery</button>
+                    </form>
+
+                    <!-- Add this JavaScript function -->
+                    <script>
+                    function shareWithGallery(tempFilename, numFaces) {
+                        // Redirect to the gallery route with the required parameters
+                        window.location.href = "{{ url_for('gallery') }}" + "?processed_image=" + tempFilename + "&num_faces=" + numFaces;
+                    }
+                    </script>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -88,46 +136,87 @@
                 </ul>
             </nav>
         </div>
-       
-    </div>
-       
     </div>
 
-    <div class="container">
-        <div class="content-container">
+    <div class="content-container">
             <h1>Processed Image</h1>
-            <img src="{{ url_for('send_image') }}" alt="Processed Image" class="processed-image">
+            <div class="zoom-container">
+                <img src="{{ url_for('send_image') }}" alt="Processed Image" class="processed-image zoomable-image-left" id="zoomable-image-left">
+            </div>
         </div>
-    </div>
-    </div>
-
-
     
-       
+        <!--<div class="right-container">
+            <h2>ROI Images</h2>
+            <div class="roi-container">
+                 {% for roi_filename in roi_filenames %}
+                <div class="roi-image">
+                    <img src="{{ url_for('static', filename=roi_filename) }}" alt="ROI Image" id="zoomable-image-right">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>-->
+
     <footer class="footer">
         <div class="nav-container">
-                <nav>
-                    <ul class="nav nav-pills white-link">
-                        <li><a href="/" class="white-link">Go back to Home</a></li>
-                        <li><a href="/download/{{ processed_image }}" alt = "Processed Image" class="white-link">Download Your Processed Image</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Contact us
-                            </a>
-                            <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item white-link"
-                                    href="mailto:admin@FacesAppear.com?subject=FacesAppear site - Issues&body=I am facing an issue with the website!">admin@FacesAppear.com.org</a>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <h5 style = "color: white"> This is for entertainment purposes only. This technology was optimized for finding shapes resembling facial features in embers and flames.</h5> 
-            <h6 style="color:white">© 2023 </span><span style= "color: cornflowerblue"><i>TransparenC Analytics</i></span><span style="color:white"> all rights reserved.</span> </h6>
+            <nav>
+                <ul class="nav nav-pills white-link">
+                    <li><a href="/" class="white-link">Go back to Home</a></li>
+                    <li><a href="/download/{{ processed_image }}" alt="Processed Image" class="white-link">Download Your Processed Image</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle white-link" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Contact us
+                        </a>
+                        <div class="dropdown-menu white-link" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item white-link"
+                                href="mailto:admin@FacesAppear.com?subject=FacesAppear site - Issues&body=I am facing an issue with the website!">admin@FacesAppear.com.org</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
+
+        <h5 style="color: white"> This is for entertainment purposes only. This technology was optimized for finding shapes resembling facial features in embers and flames.</h5>
+        <h6 style="color: white">© 2023 <span style="color: cornflowerblue"><i>TransparenC Analytics</i></span> all rights reserved.</h6>
     </footer>
 
-    
+    <script>
+        const zoomContainer = document.querySelector(".zoom-container");
+        const zoomableImage = document.getElementById("zoomable-image-left");
+
+        let isDragging = false;
+        let startX, startY, translateX, translateY;
+
+        zoomableImage.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            startX = e.clientX - zoomableImage.offsetLeft;
+            startY = e.clientY - zoomableImage.offsetTop;
+            translateX = 0;
+            translateY = 0;
+            zoomableImage.style.transition = "none";
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.clientX - startX;
+            const y = e.clientY - startY;
+            translateX = x;
+            translateY = y;
+            zoomableImage.style.transform = `scale(2) translate(${translateX}px, ${translateY}px)`;
+        });
+
+        document.addEventListener("mouseup", () => {
+            isDragging = false;
+            zoomableImage.style.transition = "transform 0.2s ease";
+        });
+
+        zoomContainer.addEventListener("wheel", (e) => {
+            e.preventDefault();
+            const scale = e.deltaY > 0 ? 0.9 : 1.1; // Adjust zoom speed
+            zoomableImage.style.transform = `scale(2) translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        });
+    </script>
 </body>
 </html>
