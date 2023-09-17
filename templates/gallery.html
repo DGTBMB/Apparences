@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <html>
 <head>
@@ -12,12 +12,9 @@
     .gallery-row {
         background: darkslategray;
         direction: column;
-        align-items: center;
-        height: 100vh 
         padding: 20px;
         margin-top: 15px;
         gap: 5px; /* Adjust the gap between images */
-    }
 
 
     .gallery-image {
@@ -28,7 +25,7 @@
 </style>
 <body>
     <h1>Gallery: </h1>
-    <p>The left image shows the face-shapes detected by the algorithms and surrounds the face-shapes with a rectangle.  The right side image is simply the application of a color mask on top of those detected face-shapes.   The mask gives more definition to the nuances of wach face-shape. but many face-shapes are hard to discern still. Zooming in can help a bit, but imagination helps the most!   Sometimes we have words for what we see, sometimes we don't. Sometimes the face-shape is clear, sometimes it isn't. When there are a large amount of faces, the image seems very chaotic. But it still may be interesting!  Please do not take these face-shapes seriously. They really are because of the effects of wind and lighting, etc..  Enjoy!</p>
+    <p>The  images on the right shows the face-shapes detected by the algorithms and surrounds the face-shapes with a rectangle.  The left side image is simply the application of a color mask on top of those detected face-shapes.   The mask gives more definition to the nuances of each face-shape,  but many shapes are still hard to discern. Zooming in can help a bit, but imagination helps the most!!!!    Though some images look overwhelming when there are a large amount of face-shapes,  it may stil be interesting to zoom in and see what you can pick out!  Please do not take these face-shapes seriously. They really are because of the effects of wind and lighting, etc..  Enjoy!</p>
     <a href="/" style="font-size: 28px; color: blue;"><strong>Go Back</strong></a>
   
 
@@ -45,17 +42,20 @@
     <a href="/" style="font-size: 28px; color: blue;"><strong>Go Back</strong></a>
     <div class="gallery">
         <div class="gallery-row">
-        <img src="{{ url_for('static', filename='gallery/' +'(COPY)f36e6058-6cb8-483e-beb3-555eaa6fcffa.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'00df3f0e-3035-49ff-93c4-9503885e4cda.JPG') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'2662f39e-9ab0-426b-9200-894f8a242057.JPG') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'20df28d6-6933-44a5-9b56-1c2f20473a49.JPG') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'79df8afb-713e-47da-958b-ac7fc61e5afe.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'cc825e61-0d74-463d-aa62-84ca6ddb0894.JPG') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'f5b5e9b6-3c41-45ef-8143-7d1e3013d468.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'88bb7b0a-893c-453e-bc05-98970c30a403.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'658d8e79-8456-410d-82da-bdbd3cea5399.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'844a27e3-4213-488f-9bec-d2e26434245d.JPG') }}" alt="Gallery Image" width="700">
-        </div>
+        <img src="{{ url_for('static', filename='gallery/' +'b417f26e-8025-479d-8aaf-af5adcad1839.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'85dbf688-8fc9-4f4e-b9ab-28eba733babe.JPG') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'071d1147-31b9-43df-b4b4-00f18fedae28.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'a92d55cd-0789-4c07-b249-7d4571404d11.JPG') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'208c1ea0-6b3d-41e0-8e6a-45a63ccd15db.JPG') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'555794cd-7d3c-4047-b074-454496949a08.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'f1561a5c-1da0-4b4e-9e21-047cff9f1199.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'6250d7b1-9205-48de-8bae-a56825e7de22.JPG') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'698d5452-7017-438e-8deb-fe87b40d3a3c.JPG') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'81a79211-eca3-4d20-909a-c2f29062314b.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'4ee79806-41db-4418-bc17-7d13f96e2e8a.JPG') }}" alt="Gallery Image" width="700">
+        
+        
+    </div>
     </div>
 
     <!-- Section 2 -->
@@ -63,31 +63,43 @@
     <a href="/" style="font-size: 28px; color: blue;"><strong>Go Back</strong></a>
     <div class="gallery"> 
         <div class="gallery-row">
-        <img src="{{ url_for('static', filename='gallery/' +'f6e9a3d5-a528-44d9-ba2c-19d2cfda2e82.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'4250d4a1-d4de-4806-a1a0-2e269978d072.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'66ca3635-9535-4d76-b30f-61cc51a33c63.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'cbbab6cc-6fac-4c8a-a71f-513356dd9c23.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'ce1bbc05-c23b-44cc-9278-aca6238f3116.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'d9592845-03e7-44a8-83be-cc723c4ac766.jpg') }}" alt="Gallery Image" width="700">
-        </div>
+        <img src="{{ url_for('static', filename='gallery/' +'b05a24e2-9d57-4d0e-b966-f67331940fc1.jpg') }}" alt="Gallery Image" width="700">   
+        <img src="{{ url_for('static', filename='gallery/' +'0f39cade-49d8-4155-bf3b-c417e07a30fd.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'1bbd40d3-b123-4e7c-8591-93fb62da666a.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'4ce4abfc-100e-440b-a1d0-575013d1101e.jpg') }}" alt="Gallery Image" width="700">  
+        <img src="{{ url_for('static', filename='gallery/' +'5bc2f412-7767-419b-9fdb-bd558faa9bbb.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'408ddd6a-8cbf-4cb0-80c2-bfc58bd64ea7.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'535809f7-8dda-489e-a1a1-5a557ec6c4fa.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'b0aa6e9f-aff7-4fe8-943b-b55560534caf.jpg') }}" alt="Gallery Image" width="700">
+        
+      
+    </div>
     </div>
 
     <!-- Section 3 -->
     <h2 id="section3">Nature Gallery</h2>
     <a href="/" style="font-size: 28px; color: blue;"><strong>Go Back</strong></a>
     <div class="gallery">   
-        <div class="gallery-row">     
-        <img src="{{ url_for('static', filename='gallery/' +'21c94631-bf50-4ea3-afba-14b75f7c3960.png') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'72beb294-2661-4129-927f-7b07abc407f2.png') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'078a6ff4-1324-4581-871d-b377534a1a18.jpg') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'d9a3fd06-9508-4f64-b14d-b4e2bd5596b3.png') }}" alt="Gallery Image" width="700">
-        <img src="{{ url_for('static', filename='gallery/' +'ed530efd-d1f2-4b48-8857-3394f57e34a6.png') }}" alt="Gallery Image" width="700">           
-     </div>
+        <div class="gallery-row">  
+        
+        <img src="{{ url_for('static', filename='gallery/' +'3dc029b3-94e5-4bb3-a90c-fbc0a3080b1f.png') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'4ba7ef82-9d54-4ece-b08a-24efcf8b12bd.jpg') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'07cee970-59d9-4f85-a0f6-1b7aa7baf73c.png') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'8d61bd4a-f530-46a2-96ff-e7ef56e7fbd0.png') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'9df118cd-a86e-466c-b043-ab25d0ecb40e.jpg') }}" alt="Gallery Image" width="700"> 
+        <img src="{{ url_for('static', filename='gallery/' +'68b420c3-4bb4-49d2-a2db-9338088f8ea0.png') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'b9f70fed-4bab-482f-a46c-230d5fee55dc.png') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'bb8942bc-8329-453f-9026-3fa8648b7a62.png') }}" alt="Gallery Image" width="700">
+        <img src="{{ url_for('static', filename='gallery/' +'bfa4948f-01ae-4bef-81ab-269ec31139ef.jpg') }}" alt="Gallery Image" width="700"> 
+        <img src="{{ url_for('static', filename='gallery/' +'4d3acf1e-af33-46ea-9b71-9f71c57a9274.png') }}" alt="Gallery Image" width="700">         
+    </div>
     </div>
         <a href="/" style="font-size: 28px; color: blue;"><strong>Go Back</strong></a>
 
 </body>
 </html>
+
+
 
     
 
