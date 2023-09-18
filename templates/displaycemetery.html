@@ -39,11 +39,11 @@
         }
 
         .content-container {
-            text-align: center;
-            max-width: 90%;
-            margin-bottom: 20px;
+            margin: 0 auto; /* Center content horizontally */
+            max-width: 100%; /* Ensure content stays within the viewport width */
             max-height: 100%;
         }
+
 
         .processed-image {
             max-width: 100%;
@@ -51,12 +51,29 @@
         }
 
         .footer {
-          background-color: #3a6f9b;
-          padding: 20px;
-          text-align: center;
-          margin-top: auto;
-          width: 100%;
+            background-color: #3a6f9b;
+            padding: 20px;
+            text-align: center;
+            margin-top: 5px;
+            width: 100%;
         }
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%; /* Adjust the width as needed */
+            max-height: 100%; /* Allow the container to adjust its height */
+        }
+
+        .zoomable-image-left,
+        .zoomable-image-right {
+            cursor: zoom-in;
+        }
+
+        .zoomable-image-right,
+        .zoomable-image-right {
+            cursor: zoom-in;
+        }
+
 
     </style>
 </head>
@@ -91,12 +108,12 @@
        
     </div>
 
-    <div class="container">
-        <div class="content-container">
-            <h1>Image now loading...</h1>
-            <img src="{{ url_for('send_image') }}" alt="Processed Image" class="processed-image">
+    <div class="content-container">
+            <h1>Results now loading... </h1>
+            <div class="zoom-container">
+                <img src="{{ url_for('send_image') }}" alt="Processed Image" class="processed-image zoomable-image-left" id="zoomable-image-left">
+            </div>
         </div>
-    </div>
     </div>
 
     
@@ -125,7 +142,45 @@
             <h6 style="color:white">© 2023 </span><span style= "color: cornflowerblue"><i>TransparenC Analytics</i></span><span style="color:white"> all rights reserved.</span> </h6>
         </div>
     </footer>
-    
+
+       <script>
+        const zoomContainer = document.querySelector(".zoom-container");
+        const zoomableImage = document.getElementById("zoomable-image-left");
+
+        let isDragging = false;
+        let startX, startY, translateX, translateY;
+
+        zoomableImage.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            startX = e.clientX - zoomableImage.offsetLeft;
+            startY = e.clientY - zoomableImage.offsetTop;
+            translateX = 0;
+            translateY = 0;
+            zoomableImage.style.transition = "none";
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.clientX - startX;
+            const y = e.clientY - startY;
+            translateX = x;
+            translateY = y;
+            zoomableImage.style.transform = `scale(2) translate(${translateX}px, ${translateY}px)`;
+        });
+
+        document.addEventListener("mouseup", () => {
+            isDragging = false;
+            zoomableImage.style.transition = "transform 0.2s ease";
+        });
+
+        zoomContainer.addEventListener("wheel", (e) => {
+            e.preventDefault();
+            const scale = e.deltaY > 0 ? 0.9 : 1.1; // Adjust zoom speed
+            zoomableImage.style.transform = `scale(2) translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        });
+    </script>
+
    
 </body>
 </html>
