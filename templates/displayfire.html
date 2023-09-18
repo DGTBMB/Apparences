@@ -24,7 +24,7 @@
         }
 
         .nav-container {
-            text-align: center;
+            text-align: center; 
             font-size: 18px; /* Adjust the font size as needed */
         }
 
@@ -34,7 +34,8 @@
 
         .content-container {
             margin: 0 auto; /* Center content horizontally */
-            max-width: 90%; /* Ensure content stays within the viewport width */
+            max-width: 100%; /* Ensure content stays within the viewport width */
+            max-height: 100%;
         }
 
         @media (max-width: 768px) {
@@ -137,7 +138,7 @@
     </div>
 
     <div class="content-container">
-            <h1>Processed Image</h1>
+            <h1>Processed Image... now we wait for the photos to upload... </h1>
             <div class="zoom-container">
                 <img src="{{ url_for('send_image') }}" alt="Processed Image" class="processed-image zoomable-image-left" id="zoomable-image-left">
             </div>
