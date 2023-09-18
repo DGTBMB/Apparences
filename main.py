@@ -155,9 +155,9 @@ def process_cloud_image(upload_path):
 
         # Combine the original image with rectangles and the color-mapped ROIs image side by side
         
-        combined_img = np.hstack((result_img_rectangles, white_image,))
+        combined_img = np.hstack(( white_image,result_img_rectangles))
     
-        final_combined_image = np.hstack((combined_img, result_img_color_mapped_faces))
+        final_combined_image = np.hstack((result_img_color_mapped_faces, combined_img))
 
 
 
