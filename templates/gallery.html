@@ -10,7 +10,6 @@
 <style>
 
     .gallery-row {
-        background: darkslategray;
         direction: column;
         padding: 20px;
         margin-top: 15px;
@@ -103,20 +102,7 @@
 
     
 
-<div class="gallery">
-    <div class="gallery-row">
-        {% for image_data in shared_images %}
-        {% if image_data['temp_filename'].endswith('.png') %}
-            <p>UUID: {{ image_data['temp_filename'].split('.')[0] }}</p>
-            <img src="{{ url_for('static', filename=image_data['temp_filename']) }}" alt="Shared Image" width="400">
-        {% endif %}
-    {% endfor %}
 
-    {% if new_uuid %}
-        <p>UUID: {{ new_uuid }}</p>
-        <img src="{{ url_for('static', filename='gallery/' + new_uuid + '.png') }}" alt="New Shared Image" width="400" >
-    {% endif %}
- </div>
         
         
     
