@@ -91,81 +91,77 @@ def process_cloud_image(upload_path):
         return {'status': 'error', 'message': 'Failed to read the image'}
 
     # Perform face detection on the cloud image
-    faces = face_cascade.detectMultiScale(img, scaleFactor=1.03, minSize = (60,60), minNeighbors=3)
-    faces1 = face1_cascade.detectMultiScale(img, scaleFactor=1.03, minSize = (60,60), minNeighbors=3)
-    
+    faces = face_cascade.detectMultiScale(img, scaleFactor=1.03, minSize=(60, 60), minNeighbors=3)
+    faces1 = face1_cascade.detectMultiScale(img, scaleFactor=1.03, minSize=(60, 60), minNeighbors=3)
 
     # Create a copy of the original image
     result_img_rectangles = img.copy()
-    
-    white_image = np.full((result_img_rectangles.shape[0], 20, 3), 255, dtype=np.uint8)
-    
 
-        # Apply a color map (e.g., 'BONE') to the entire image as background
+    white_image = np.full((result_img_rectangles.shape[0], 20, 3), 255, dtype=np.uint8)
+
+    # Apply a color map (e.g., 'BONE') to the entire image as background
     result_img_color_mapped_faces = cv2.applyColorMap(result_img_rectangles, cv2.COLORMAP_BONE)
 
     final_combined_image = []
-        # Iterate through detected faces in 'faces'
+    
+    # Iterate through detected faces in 'faces'
     for (x, y, w, h) in faces:
-            # Define the region of interest (ROI) for the face
+        # Define the region of interest (ROI) for the face
         roi_faces = img[y:y + h, x:x + w]
 
-            # Adjust brightness and contrast of the ROI
+        # Adjust brightness and contrast of the ROI
         alpha = 0.6  # Adjust brightness (increase/decrease as needed)
         beta = 110   # Adjust contrast (increase/decrease as needed)
         adjusted_roi = cv2.convertScaleAbs(roi_faces, alpha=alpha, beta=beta)
 
-            # Apply the desired colormap (e.g., 'OCEAN') to the ROI
+        # Apply the desired colormap (e.g., 'OCEAN') to the ROI
         colormap_roi = cv2.applyColorMap(adjusted_roi, cv2.COLORMAP_OCEAN)
 
-            # Adjust the saturation of the ROI (increase/decrease as needed)
+        # Adjust the saturation of the ROI (increase/decrease as needed)
         saturation_factor = 0.75  # Increase or decrease saturation as needed
         hsv_roi = cv2.cvtColor(colormap_roi, cv2.COLOR_BGR2HSV)
         hsv_roi[:, :, 1] = np.clip(hsv_roi[:, :, 1] * saturation_factor, 0, 255)
         adjusted_roi_with_colormap = cv2.cvtColor(hsv_roi, cv2.COLOR_HSV2RGB)
 
-            # Paste the modified ROI onto the background image
+        # Paste the modified ROI onto the background image
         result_img_color_mapped_faces[y:y + h, x:x + w] = adjusted_roi_with_colormap
 
-            # Draw rectangles on the original image for 'faces'
+        # Draw rectangles on the original image for 'faces'
         cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 6)
 
-        # Iterate through detected faces in 'faces1'
-    # Check if any faces were detected within the specified size range
+    # Check if any faces were detected within the specified size range for 'faces1'
     if len(faces1) == 0:
-        print("No faces detected within the specified size range for 'faces'")
+        print("No faces detected within the specified size range for 'faces1'")
     else:
+        # Iterate through detected faces in 'faces1'
         for (x, y, w, h) in faces1:
             # Define the region of interest (ROI) for the face from 'faces1'
-        roi_faces1 = img[y:y + h, x:x + w]
+            roi_faces1 = img[y:y + h, x:x + w]
 
             # Adjust brightness and contrast of the ROI for 'faces1'
-        alpha = 0.55  # Adjust brightness (increase/decrease as needed)
-        beta = 110   # Adjust contrast (increase/decrease as needed)
-        adjusted_roi_faces1 = cv2.convertScaleAbs(roi_faces1, alpha=alpha, beta=beta)
+            alpha = 0.55  # Adjust brightness (increase/decrease as needed)
+            beta = 110   # Adjust contrast (increase/decrease as needed)
+            adjusted_roi_faces1 = cv2.convertScaleAbs(roi_faces1, alpha=alpha, beta=beta)
 
             # Apply the desired colormap (e.g., 'OCEAN') to the ROI for 'faces1'
-        colormap_roi_faces1 = cv2.applyColorMap(adjusted_roi_faces1, cv2.COLORMAP_OCEAN)
+            colormap_roi_faces1 = cv2.applyColorMap(adjusted_roi_faces1, cv2.COLORMAP_OCEAN)
 
             # Adjust the saturation of the ROI for 'faces1'
-        saturation_factor = 0.90  # Increase or decrease saturation as needed
-        hsv_roi_faces1 = cv2.cvtColor(colormap_roi_faces1, cv2.COLOR_BGR2HSV)
-        hsv_roi_faces1[:, :, 1] = np.clip(hsv_roi_faces1[:, :, 1] * saturation_factor, 0, 255)
-        adjusted_roi_with_colormap_faces1 = cv2.cvtColor(hsv_roi_faces1, cv2.COLOR_HSV2RGB)
+            saturation_factor = 0.90  # Increase or decrease saturation as needed
+            hsv_roi_faces1 = cv2.cvtColor(colormap_roi_faces1, cv2.COLOR_BGR2HSV)
+            hsv_roi_faces1[:, :, 1] = np.clip(hsv_roi_faces1[:, :, 1] * saturation_factor, 0, 255)
+            adjusted_roi_with_colormap_faces1 = cv2.cvtColor(hsv_roi_faces1, cv2.COLOR_HSV2RGB)
 
             # Paste the modified ROI onto the background image for 'faces1'
-        result_img_color_mapped_faces[y:y + h, x:x + w] = adjusted_roi_with_colormap_faces1
+            result_img_color_mapped_faces[y:y + h, x:x + w] = adjusted_roi_with_colormap_faces1
 
             # Draw rectangles on the original image for 'faces1'
-        cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 6)
+            cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 6)
 
-        # Combine the original image with rectangles and the color-mapped ROIs image side by side
-        
-        combined_img = np.hstack(( white_image, result_img_rectangles))
-    
-        final_combined_image = np.hstack((result_img_color_mapped_faces, combined_img))
+    # Combine the original image with rectangles and the color-mapped ROIs image side by side
+    combined_img = np.hstack((white_image, result_img_rectangles))
 
-
+    final_combined_image = np.hstack((result_img_color_mapped_faces, combined_img))
 
     # Count the number of faces detected in 'faces' and 'faces1' regions
     num_faces = len(faces)
@@ -177,13 +173,8 @@ def process_cloud_image(upload_path):
     cv2.imwrite(temp_destination, final_combined_image)
 
     result_cloud = {
-        'status': 'success',
-        'message': 'Image processed successfully',
-        'num_faces': num_faces,
-        'num_faces1': num_faces1,
-        'temp_filename': temp_filename
-    }
-    return result_cloud
+        'status
+
 
 ##### PROCESS FIRE ------------------------------------------------------------------------------------
 def process_fire_image(upload_path):
