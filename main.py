@@ -170,8 +170,10 @@ def process_cloud_image(upload_path):
     temp_filename = 'temp.png'
     temp_destination = os.path.join(UPLOADS_FOLDER, temp_filename)
 
-    # Save the processed image
-    cv2.imwrite(temp_destination, final_combined_image)
+    for i, image in enumerate(final_combined_image):
+        temp_destination = os.path.join(UPLOADS_FOLDER, f'temp_{i}.png')
+        if not cv2.imwrite(temp_destination, image):
+        print(f"Error saving image {i}: {temp_destination}")
 
     result_cloud = {
         'status': 'success',
