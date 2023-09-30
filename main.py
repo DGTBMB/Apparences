@@ -301,8 +301,8 @@ def process_cemetery_image(upload_path):   ### BONE GOOD FOR FIRE####
         return {'status': 'error', 'message': 'Failed to read the image'}
     
     # Perform face detection
-    faces = face_cascade.detectMultiScale(img, scaleFactor=1.3, minSize = (60,60), minNeighbors=6)
-    prof =  face_cascade.detectMultiScale(img, scaleFactor=1.3, minSize = (60,60), minNeighbors=6)
+    faces = face_cascade.detectMultiScale(img, scaleFactor=1.03, minSize = (60,60), minNeighbors=6)
+    prof =  face_cascade.detectMultiScale(img, scaleFactor=1.03, minSize = (60,60), minNeighbors=6)
 
     # Create a copy of the original image to process separately
     processed_img1 = img.copy()
