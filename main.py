@@ -91,8 +91,8 @@ def process_cloud_image(upload_path):
         return {'status': 'error', 'message': 'Failed to read the image'}
 
     # Perform face detection on the cloud image
-    faces = face_cascade.detectMultiScale(img, scaleFactor=1.03, minSize = (60,60), minNeighbors=3)
-    faces1 = face1_cascade.detectMultiScale(img, scaleFactor=1.03, minSize = (60,60), minNeighbors=3)
+    faces = face_cascade.detectMultiScale(img, scaleFactor=1.02, minSize = (60,60), minNeighbors=3)
+    faces1 = face1_cascade.detectMultiScale(img, scaleFactor=1.02, minSize = (60,60), minNeighbors=3)
 
     # Create a copy of the original image
     result_img_rectangles = img.copy()
@@ -155,7 +155,7 @@ def process_cloud_image(upload_path):
 
         # Combine the original image with rectangles and the color-mapped ROIs image side by side
         
-        combined_img = np.hstack(( white_image,result_img_rectangles))
+        combined_img = np.hstack(( white_image, result_img_rectangles))
     
         final_combined_image = np.hstack((result_img_color_mapped_faces, combined_img))
 
