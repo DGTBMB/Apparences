@@ -93,6 +93,7 @@ def process_cloud_image(upload_path):
     # Perform face detection on the cloud image
     faces = face_cascade.detectMultiScale(img, scaleFactor=1.03, minSize = (60,60), minNeighbors=3)
     faces1 = face1_cascade.detectMultiScale(img, scaleFactor=1.03, minSize = (60,60), minNeighbors=3)
+    
 
     # Create a copy of the original image
     result_img_rectangles = img.copy()
@@ -130,7 +131,11 @@ def process_cloud_image(upload_path):
         cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 6)
 
         # Iterate through detected faces in 'faces1'
-    for (x, y, w, h) in faces1:
+    # Check if any faces were detected within the specified size range
+    if len(faces1) == 0:
+        print("No faces detected within the specified size range for 'faces'")
+    else:
+        for (x, y, w, h) in faces1:
             # Define the region of interest (ROI) for the face from 'faces1'
         roi_faces1 = img[y:y + h, x:x + w]
 
