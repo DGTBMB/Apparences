@@ -103,7 +103,7 @@ def process_cloud_image(upload_path):
         # Apply a color map (e.g., 'BONE') to the entire image as background
     result_img_color_mapped_faces = cv2.applyColorMap(result_img_rectangles, cv2.COLORMAP_BONE)
 
-
+    final_combined_image = []
         # Iterate through detected faces in 'faces'
     for (x, y, w, h) in faces:
             # Define the region of interest (ROI) for the face
@@ -169,10 +169,7 @@ def process_cloud_image(upload_path):
     temp_filename = 'temp.png'
     temp_destination = os.path.join(UPLOADS_FOLDER, temp_filename)
 
-    for i, image in enumerate(final_combined_image):
-        temp_destination = os.path.join(UPLOADS_FOLDER, f'temp_{i}.png')
-        if not cv2.imwrite(temp_destination, image):
-        print(f"Error saving image {i}: {temp_destination}")
+    cv2.imwrite(temp_destination, final_combined_image)
 
     result_cloud = {
         'status': 'success',
