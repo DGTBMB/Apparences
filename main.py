@@ -104,31 +104,6 @@ def process_cloud_image(upload_path):
 
     final_combined_image = []
     
-    # Iterate through detected faces in 'faces'
-    for (x, y, w, h) in faces:
-        # Define the region of interest (ROI) for the face
-        roi_faces = img[y:y + h, x:x + w]
-
-        # Adjust brightness and contrast of the ROI
-        alpha = 0.6  # Adjust brightness (increase/decrease as needed)
-        beta = 110   # Adjust contrast (increase/decrease as needed)
-        adjusted_roi = cv2.convertScaleAbs(roi_faces, alpha=alpha, beta=beta)
-
-        # Apply the desired colormap (e.g., 'OCEAN') to the ROI
-        colormap_roi = cv2.applyColorMap(adjusted_roi, cv2.COLORMAP_OCEAN)
-
-        # Adjust the saturation of the ROI (increase/decrease as needed)
-        saturation_factor = 0.75  # Increase or decrease saturation as needed
-        hsv_roi = cv2.cvtColor(colormap_roi, cv2.COLOR_BGR2HSV)
-        hsv_roi[:, :, 1] = np.clip(hsv_roi[:, :, 1] * saturation_factor, 0, 255)
-        adjusted_roi_with_colormap = cv2.cvtColor(hsv_roi, cv2.COLOR_HSV2RGB)
-
-        # Paste the modified ROI onto the background image
-        result_img_color_mapped_faces[y:y + h, x:x + w] = adjusted_roi_with_colormap
-
-        # Draw rectangles on the original image for 'faces'
-        cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 6)
-
     # Check if any faces were detected within the specified size range for 'faces1'
     if len(faces1) == 0:
         print("No faces detected within the specified size range for 'faces1'")
@@ -140,7 +115,7 @@ def process_cloud_image(upload_path):
 
             # Adjust brightness and contrast of the ROI for 'faces1'
             alpha = 0.55  # Adjust brightness (increase/decrease as needed)
-            beta = 110   # Adjust contrast (increase/decrease as needed)
+            beta = 110  # Adjust contrast (increase/decrease as needed)
             adjusted_roi_faces1 = cv2.convertScaleAbs(roi_faces1, alpha=alpha, beta=beta)
 
             # Apply the desired colormap (e.g., 'OCEAN') to the ROI for 'faces1'
@@ -158,9 +133,33 @@ def process_cloud_image(upload_path):
             # Draw rectangles on the original image for 'faces1'
             cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 6)
 
+    # Process 'faces'
+    for (x, y, w, h) in faces:
+        # Define the region of interest (ROI) for the face
+        roi_faces = img[y:y + h, x:x + w]
+
+        # Adjust brightness and contrast of the ROI
+        alpha = 0.6  # Adjust brightness (increase/decrease as needed)
+        beta = 110  # Adjust contrast (increase/decrease as needed)
+        adjusted_roi = cv2.convertScaleAbs(roi_faces, alpha=alpha, beta=beta)
+
+        # Apply the desired colormap (e.g., 'OCEAN') to the ROI
+        colormap_roi = cv2.applyColorMap(adjusted_roi, cv2.COLORMAP_OCEAN)
+
+        # Adjust the saturation of the ROI (increase/decrease as needed)
+        saturation_factor = 0.75  # Increase or decrease saturation as needed
+        hsv_roi = cv2.cvtColor(colormap_roi, cv2.COLOR_BGR2HSV)
+        hsv_roi[:, :, 1] = np.clip(hsv_roi[:, :, 1] * saturation_factor, 0, 255)
+        adjusted_roi_with_colormap = cv2.cvtColor(hsv_roi, cv2.COLOR_HSV2RGB)
+
+        # Paste the modified ROI onto the background image
+        result_img_color_mapped_faces[y:y + h, x:x + w] = adjusted_roi_with_colormap
+
+        # Draw rectangles on the original image for 'faces'
+        cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 6)
+
     # Combine the original image with rectangles and the color-mapped ROIs image side by side
     combined_img = np.hstack((white_image, result_img_rectangles))
-
     final_combined_image = np.hstack((result_img_color_mapped_faces, combined_img))
 
     # Count the number of faces detected in 'faces' and 'faces1' regions
@@ -180,6 +179,7 @@ def process_cloud_image(upload_path):
         'temp_filename': temp_filename
     }
     return result_cloud
+
 
 
 ##### PROCESS FIRE ------------------------------------------------------------------------------------
