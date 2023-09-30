@@ -173,7 +173,13 @@ def process_cloud_image(upload_path):
     cv2.imwrite(temp_destination, final_combined_image)
 
     result_cloud = {
-        'status
+        'status': 'success',
+        'message': 'Image processed successfully',
+        'num_faces': num_faces,
+        'num_faces1': num_faces1,
+        'temp_filename': temp_filename
+    }
+    return result_cloud
 
 
 ##### PROCESS FIRE ------------------------------------------------------------------------------------
