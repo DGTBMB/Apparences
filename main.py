@@ -103,6 +103,8 @@ def process_cloud_image(upload_path):
         # Apply a color map (e.g., 'BONE') to the entire image as background
     result_img_color_mapped_faces = cv2.applyColorMap(result_img_rectangles, cv2.COLORMAP_BONE)
 
+    final_combined_image = None
+
         # Iterate through detected faces in 'faces'
     for (x, y, w, h) in faces:
             # Define the region of interest (ROI) for the face
