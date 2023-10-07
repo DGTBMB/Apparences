@@ -131,7 +131,7 @@ def process_cloud_image(upload_path):
             result_img_color_mapped_faces[y:y + h, x:x + w] = adjusted_roi_with_colormap_faces1
 
             # Draw rectangles on the original image for 'faces1'
-            cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 6)
+            cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 10)
 
     # Process 'faces'
     for (x, y, w, h) in faces:
@@ -156,7 +156,7 @@ def process_cloud_image(upload_path):
         result_img_color_mapped_faces[y:y + h, x:x + w] = adjusted_roi_with_colormap
 
         # Draw rectangles on the original image for 'faces'
-        cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 6)
+        cv2.rectangle(result_img_rectangles, (x, y), (x + w, y + h), (10, 255, 194), 10)
 
     # Combine the original image with rectangles and the color-mapped ROIs image side by side
     combined_img = np.hstack((white_image, result_img_rectangles))
